@@ -11,6 +11,8 @@ import Philosophy from './pages/Philosophy.jsx';
 import Contact from './pages/Contact.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 /**
  * Renders a page-loader overlay that fades out once fonts/DOM are ready.
@@ -66,6 +68,14 @@ export default function App() {
             <Route path="/contact"       element={<Contact />} />
             <Route path="/login"         element={<Login />} />
             <Route path="/register"      element={<Register />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </div>
       </BrowserRouter>

@@ -4,10 +4,11 @@ import { useAuth } from '../context/AuthContext.jsx';
 import '../styles/nav.css';
 
 const NAV_ITEMS = [
-  { label: 'Atelier',    path: '/' },
-  { label: 'Archive',    path: '/archive' },
-  { label: 'Philosophy', path: '/philosophy' },
-  { label: 'Contact',    path: '/contact' },
+  { label: 'Atelier',    path: '/',           auth: false },
+  { label: 'Archive',    path: '/archive',    auth: false },
+  { label: 'Philosophy', path: '/philosophy', auth: false },
+  { label: 'Contact',    path: '/contact',    auth: false },
+  { label: 'Dashboard',  path: '/dashboard',  auth: true  },
 ];
 
 /**
@@ -60,7 +61,7 @@ export default function MobileNav() {
         aria-hidden={!open}
       >
         <ul role="list">
-          {NAV_ITEMS.map(({ label, path }) => (
+          {NAV_ITEMS.filter(({ auth }) => !auth || !!user).map(({ label, path }) => (
             <li key={path}>
               <Link
                 to={path}
