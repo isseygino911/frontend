@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_BASE } from '../config/api.js';
 
-const client = axios.create({
+export const client = axios.create({
   baseURL:         API_BASE,
   withCredentials: true, // send httpOnly cookies on every request
 });

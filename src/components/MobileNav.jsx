@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import '../styles/nav.css';
@@ -19,11 +19,15 @@ export default function MobileNav() {
   const [open, setOpen]     = useState(false);
   const location            = useLocation();
   const { user, logout }    = useAuth();
+  const hamburgerRef        = useRef(null);
 
-  // Close menu on route change
+  // Close menu on route change and return focus to hamburger (Bug 12)
   useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
+    if (open) {
+      setOpen(false);
+      hamburgerRef.current?.focus();
+    }
+  }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function toggleMenu() {
     setOpen((prev) => !prev);
@@ -42,6 +46,7 @@ export default function MobileNav() {
         </Link>
         <button
           id="hamburger"
+          ref={hamburgerRef}
           className={open ? 'open' : ''}
           aria-label="Toggle menu"
           aria-expanded={open}

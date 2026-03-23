@@ -305,14 +305,11 @@
   top: 0;
   left: 0;
   height: 100%;
+  width: 100%;
   background: var(--primary);
   transform-origin: left;
   transform: scaleX(0);
   transition: transform 0.9s var(--ease-monolith);
-}
-
-.dash-breakdown-bar-fill.animate-bar {
-  transform: scaleX(1);
 }
 
 .dash-breakdown-count {
@@ -627,5 +624,21 @@
 
   .dash-breakdown-row {
     grid-template-columns: 1fr auto 36px;
+  }
+}
+
+/* ---- Reduced motion (Bug 8) -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .dash-skeleton,
+  .dash-loading-inner span,
+  .dash-btn-spinner {
+    animation: none;
+  }
+
+  .dash-breakdown-bar-fill,
+  .dash-feedback,
+  .dash-btn-save,
+  .dash-input {
+    transition-duration: 0.01ms;
   }
 }

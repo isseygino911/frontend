@@ -1,35 +1,5 @@
-import axios from 'axios';
-import { API_BASE } from '../config/api.js';
-
-const client = axios.create({
-  baseURL:         API_BASE,
-  withCredentials: true,
-});
-
-// Auto-refresh on 401 — same pattern as authAPI.js
-client.interceptors.response.use(
-  (res) => res,
-  async (err) => {
-    const original = err.config;
-    const status   = err.response?.status;
-    const isRefreshCall = original?.url?.includes('/auth/refresh');
-
-    if (status === 429) {
-      return Promise.reject(new Error('Too many requests, please slow down and try again.'));
-    }
-
-    if (status === 401 && !original._retry && !isRefreshCall) {
-      original._retry = true;
-      try {
-        await client.post('/auth/refresh');
-        return client(original);
-      } catch {
-        // Refresh failed — let caller handle 401
-      }
-    }
-    return Promise.reject(err);
-  }
-);
+// Shared axios client (with auth interceptors) from authAPI — single source of truth (Bug 4)
+import { client } from './authAPI.js';
 
 /**
  * Fetch the full dashboard payload.

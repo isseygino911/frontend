@@ -1,8 +1,34 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, Component } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import { getDashboard, updateProfile, changePassword } from '../services/dashboardAPI.js';
 import '../styles/dashboard.css';
+
+/* =========================================================
+   ERROR BOUNDARY (Bug 6)
+========================================================= */
+class DashboardErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <main className="dashboard-page">
+          <div className="dash-error">
+            <h1 className="dash-error-title">Something went wrong</h1>
+            <p className="dash-error-msg">An unexpected error occurred. Please refresh the page.</p>
+          </div>
+        </main>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 /* =========================================================
    SMALL HELPERS
@@ -18,15 +44,6 @@ function formatDate(iso) {
   }
 }
 
-/** Returns a human-readable age string from a number of days */
-function formatAge(days) {
-  if (days == null) return '—';
-  if (days < 30) return `${days}d`;
-  if (days < 365) return `${Math.floor(days / 30)}mo`;
-  const yrs = Math.floor(days / 365);
-  const mos = Math.floor((days % 365) / 30);
-  return mos > 0 ? `${yrs}y ${mos}mo` : `${yrs}y`;
-}
 
 /* =========================================================
    PORTFOLIO BREAKDOWN ROW
@@ -35,17 +52,16 @@ function BreakdownRow({ type, count, max, delay }) {
   const fillRef = useRef(null);
   const ratio = max > 0 ? count / max : 0;
 
-  // Trigger bar fill once the row is visible
+  // Trigger bar fill once the row is visible — animate to the proportional ratio (Bug 7)
   useEffect(() => {
     const el = fillRef.current;
     if (!el) return;
-    el.style.width = `${ratio * 100}%`;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            el.classList.add('animate-bar');
+            el.style.transform = `scaleX(${ratio})`;
           }, delay);
           observer.disconnect();
         }
@@ -270,7 +286,7 @@ function PasswordForm() {
 /* =========================================================
    MAIN DASHBOARD PAGE
 ========================================================= */
-export default function Dashboard() {
+function DashboardInner() {
   const { user } = useAuth();
 
   const [data,    setData]    = useState(null);
@@ -313,7 +329,7 @@ export default function Dashboard() {
   /* ---- Derived values ---------------------------------- */
   const accountStats   = data?.accountStats   ?? {};
   const portfolioStats = data?.portfolioStats ?? {};
-  const isAdmin        = profile?.role === 'admin' || user?.role === 'admin';
+  const isAdmin        = profile?.role === 'admin'; // Bug 1: server response only, never client JWT state
   const displayName    = profile?.name || user?.name || user?.email?.split('@')[0] || 'Studio';
 
   // Build breakdown array sorted descending
@@ -323,10 +339,10 @@ export default function Dashboard() {
 
   const maxCount = typeEntries.length ? typeEntries[0].count : 1;
 
-  /* ---- Loading full-page state ------------------------- */
+  /* ---- Loading full-page state (Bug 9: role+aria-live) -- */
   if (loading) {
     return (
-      <div className="dashboard-page dash-loading">
+      <div className="dashboard-page dash-loading" role="status" aria-live="polite">
         <div className="dash-loading-inner">
           <span>Loading</span>
         </div>
@@ -334,15 +350,15 @@ export default function Dashboard() {
     );
   }
 
-  /* ---- Error state ------------------------------------- */
+  /* ---- Error state (Bug 10: <main> landmark, safe msg) -- */
   if (error) {
     return (
-      <div className="dashboard-page">
+      <main className="dashboard-page">
         <div className="dash-error">
           <h1 className="dash-error-title">Unavailable</h1>
-          <p className="dash-error-msg">{error}</p>
+          <p className="dash-error-msg">Unable to load your dashboard. Please try again later.</p>
         </div>
-      </div>
+      </main>
     );
   }
 
@@ -350,8 +366,8 @@ export default function Dashboard() {
   return (
     <div className="dashboard-page">
 
-      {/* ── Header ─────────────────────────────────────── */}
-      <header className="dash-header">
+      {/* ── Header (Bug 11: <section> not <header> to avoid duplicate banner landmark) */}
+      <section className="dash-header" aria-label="Account overview">
         <div className="dash-header-inner">
           <div className="dash-section-label" data-animate>Account</div>
 
@@ -366,7 +382,7 @@ export default function Dashboard() {
             </span>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* ── Body ───────────────────────────────────────── */}
       <div className="dash-body">
@@ -383,7 +399,7 @@ export default function Dashboard() {
             />
             <StatCard
               label="Account Age"
-              value={formatAge(accountStats.accountAge)}
+              value={accountStats.accountAge ?? '—'}
               sub="active"
               delay={70}
               loading={false}
@@ -391,7 +407,10 @@ export default function Dashboard() {
             <StatCard
               label="Total Projects"
               value={portfolioStats.totalProjects ?? '—'}
-              sub={`${portfolioStats.yearsActive ?? 0} yr${portfolioStats.yearsActive === 1 ? '' : 's'} active`}
+              sub={(() => {
+                const yrs = portfolioStats.yearsActive?.length ?? 0;
+                return `${yrs} yr${yrs === 1 ? '' : 's'} active`;
+              })()}
               accent
               delay={140}
               loading={false}
@@ -467,5 +486,13 @@ export default function Dashboard() {
 
       </div>
     </div>
+  );
+}
+
+export default function Dashboard() {
+  return (
+    <DashboardErrorBoundary>
+      <DashboardInner />
+    </DashboardErrorBoundary>
   );
 }
