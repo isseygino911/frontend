@@ -11,7 +11,16 @@ client.interceptors.response.use(
   (res) => res,
   async (err) => {
     const original = err.config;
-    if (err.response?.status === 401 && !original._retry) {
+    const status = err.response?.status;
+
+    // Never retry if this request was itself a refresh (prevents infinite loop)
+    const isRefreshCall = original?.url?.includes('/auth/refresh');
+
+    if (status === 429) {
+      return Promise.reject(new Error('Too many requests, please slow down and try again.'));
+    }
+
+    if (status === 401 && !original._retry && !isRefreshCall) {
       original._retry = true;
       try {
         await client.post('/auth/refresh');
