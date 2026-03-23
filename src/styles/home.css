@@ -1,0 +1,624 @@
+/* =========================================================
+   HOME PAGE — HERO
+========================================================= */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 60px 80px;
+  overflow: hidden;
+}
+
+/* CSS ART: Hero background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0e0e0e 0%, #131313 40%, #0a0a0a 100%);
+}
+
+.hero-geo-1 {
+  position: absolute;
+  top: 5%;
+  right: 8%;
+  width: 38vw;
+  height: 70vh;
+  background: linear-gradient(160deg, #191a1a 0%, #1f2020 60%, #131313 100%);
+  clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+}
+
+.hero-geo-2 {
+  position: absolute;
+  top: 12%;
+  right: 14%;
+  width: 28vw;
+  height: 50vh;
+  background: linear-gradient(200deg, #252626 0%, #1f2020 100%);
+  clip-path: polygon(0% 0%, 100% 8%, 92% 100%, 8% 92%);
+  opacity: 0.7;
+}
+
+.hero-geo-3 {
+  position: absolute;
+  top: 20%;
+  right: 22%;
+  width: 16vw;
+  height: 30vh;
+  background: linear-gradient(180deg, #2b2c2c 0%, #1f2020 100%);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  opacity: 0.5;
+}
+
+.hero-geo-accent {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  width: 3px;
+  height: 30vh;
+  background: linear-gradient(180deg, transparent, var(--primary), transparent);
+  opacity: 0.6;
+}
+
+.hero-geo-accent-2 {
+  position: absolute;
+  top: 30%;
+  right: 32%;
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-dim), transparent);
+  opacity: 0.5;
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+  pointer-events: none;
+}
+
+/* Depth layers for cursor parallax */
+.depth-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.hero-display {
+  font-family: var(--font-serif);
+  font-size: clamp(72px, 14vw, 200px);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+  overflow: hidden;
+}
+
+.hero-display-line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-display .outline-text {
+  -webkit-text-stroke: 1px var(--on-surface);
+  color: transparent;
+}
+
+.hero-display .outline-primary {
+  -webkit-text-stroke: 1px var(--primary);
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-top: 28px;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.hero-scroll-hint span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--outline);
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--outline), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* =========================================================
+   PROJECTS GRID
+========================================================= */
+.projects-section {
+  padding: 80px 60px 120px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--surface-1);
+}
+
+.project-card:nth-child(1) {
+  grid-row: 1 / 3;
+}
+
+.project-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.project-card:nth-child(1) .project-card-image {
+  aspect-ratio: unset;
+  height: 100%;
+  min-height: 500px;
+}
+
+.project-card-wide .project-card-image {
+  aspect-ratio: 21/7 !important;
+  min-height: auto !important;
+}
+
+.css-art {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s var(--ease-out-quart);
+}
+
+.project-card:hover .css-art {
+  transform: scale(1.04);
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out-quart);
+}
+
+.project-card:hover .project-card-img {
+  transform: scale(1.04);
+}
+
+/* CSS ART: Project 1 — The Concrete Prism */
+.art-concrete-prism {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 40%, #1e1d1d 100%);
+  position: relative;
+}
+
+.art-concrete-prism::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(170deg, transparent 30%, #2b2c2c 30%, #2b2c2c 32%, transparent 32%),
+    linear-gradient(80deg, transparent 20%, #252626 20%, #252626 22%, transparent 22%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 255, 255, 0.015) 40px,
+      rgba(255, 255, 255, 0.015) 41px
+    );
+}
+
+.art-concrete-prism::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  width: 40%;
+  height: 60%;
+  background: linear-gradient(160deg, #252626 0%, #1f2020 50%, #131313 100%);
+  clip-path: polygon(0% 10%, 100% 0%, 90% 100%, 10% 100%);
+  border-top: 1px solid rgba(227, 193, 150, 0.15);
+}
+
+/* CSS ART: Project 2 — Obsidian House */
+.art-obsidian-house {
+  background: linear-gradient(180deg, #0a0a0a 0%, #131313 50%, #0e0e0e 100%);
+  position: relative;
+}
+
+.art-obsidian-house::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 40%, #1f2020 40%, #1f2020 42%, transparent 42%),
+    linear-gradient(225deg, transparent 55%, #252626 55%, #252626 57%, transparent 57%);
+}
+
+.art-obsidian-house::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  height: 60%;
+  background: linear-gradient(180deg, #191a1a 0%, #0f0f0f 100%);
+  clip-path: polygon(15% 40%, 50% 0%, 85% 40%, 85% 100%, 15% 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+/* CSS ART: Project 3 — Vault of Shadows */
+.art-vault {
+  background: radial-gradient(ellipse at 30% 70%, #1f2020 0%, #0a0a0a 60%);
+  position: relative;
+}
+
+.art-vault::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 8px,
+    rgba(255, 255, 255, 0.02) 8px,
+    rgba(255, 255, 255, 0.02) 9px
+  );
+}
+
+.art-vault::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%;
+  border: 1px solid rgba(227, 193, 150, 0.12);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* CSS ART: Project 4 — Interior Narrative */
+.art-interior {
+  background: linear-gradient(160deg, #1a1918 0%, #0f0e0e 100%);
+  position: relative;
+}
+
+.art-interior::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 33%, #191a1a 33%, #191a1a 34%, transparent 34%),
+    linear-gradient(90deg, transparent 66%, #191a1a 66%, #191a1a 67%, transparent 67%),
+    linear-gradient(180deg, transparent 50%, rgba(227, 193, 150, 0.04) 50%);
+}
+
+.art-interior::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 30%;
+  height: 50%;
+  background: linear-gradient(180deg, #252626 0%, #1a1a1a 100%);
+  box-shadow: 20px 0 0 #1f2020, 40px 0 0 #252626;
+}
+
+.project-card-info {
+  padding: 20px 24px;
+  background: var(--surface-1);
+}
+
+.project-card-info-wide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.project-code {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.project-year {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--outline);
+}
+
+.project-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--on-surface);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.project-location {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.project-card-type-label {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 300;
+  color: var(--outline);
+  font-style: italic;
+}
+
+.project-card-hover-reveal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 24px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease-monolith), transform 0.4s var(--ease-monolith);
+  pointer-events: none;
+}
+
+.project-card:hover .project-card-hover-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.view-project {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  transition: letter-spacing 0.3s var(--ease-monolith);
+}
+
+.project-card:hover .view-project {
+  letter-spacing: 0.28em;
+}
+
+/* =========================================================
+   MANIFESTO STRIP
+========================================================= */
+.manifesto-strip {
+  padding: 60px;
+  border-top: 1px solid var(--outline-var);
+  border-bottom: 1px solid var(--outline-var);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.manifesto-stat {
+  text-align: center;
+  flex: 1;
+}
+
+.manifesto-number {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 300;
+  color: var(--on-surface);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.manifesto-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-top: 8px;
+}
+
+.manifesto-divider {
+  width: 1px;
+  height: 80px;
+  background: var(--outline-var);
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   HOME FOOTER
+========================================================= */
+.home-footer {
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  border-top: 1px solid var(--outline-var);
+}
+
+.footer-cta-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.footer-cta-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--on-surface);
+  margin-bottom: 32px;
+}
+
+.footer-cta-headline em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.footer-cta-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-contact-info {
+  padding-top: 8px;
+}
+
+.footer-contact-info h3 {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+
+.contact-line {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-item-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--outline);
+}
+
+.contact-item-value {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--on-surface);
+  transition: color 0.3s;
+}
+
+.contact-item-value:hover { color: var(--primary); }
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .hero-section { padding: 0 24px 60px; }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card:nth-child(1) { grid-row: auto; }
+
+  .project-card:nth-child(1) .project-card-image {
+    min-height: auto;
+    aspect-ratio: 4/3;
+  }
+
+  .manifesto-strip {
+    padding: 40px 24px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .manifesto-divider { display: none; }
+
+  .home-footer {
+    padding: 60px 24px;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .projects-section { padding: 60px 24px; }
+}
+
+@media (max-width: 480px) {
+  .hero-display { font-size: clamp(42px, 22vw, 80px); }
+  .manifesto-stat { flex: 0 1 calc(50% - 12px); }
+}

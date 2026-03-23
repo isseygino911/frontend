@@ -1,0 +1,401 @@
+/* =========================================================
+   PROJECT DETAIL PAGE
+========================================================= */
+.project-hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 60px 80px;
+  overflow: hidden;
+}
+
+.project-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Real image: Project hero */
+.project-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CSS ART: Project detail hero (fallback) */
+.art-project-detail {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0e0e0e 0%, #1a1a1a 50%, #0a0a0a 100%);
+  position: relative;
+}
+
+.art-project-detail::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, transparent 45%, #252626 45%, #252626 46%, transparent 46%),
+    linear-gradient(80deg, transparent 35%, #1f2020 35%, #1f2020 36.5%, transparent 36.5%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.01) 60px,
+      rgba(255, 255, 255, 0.01) 61px
+    );
+}
+
+.art-project-detail::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 45%;
+  height: 75%;
+  background: linear-gradient(180deg, #1f2020 0%, #131313 100%);
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+  border-left: 1px solid rgba(227, 193, 150, 0.1);
+}
+
+.project-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.project-hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.project-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.project-hero-eyebrow span {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.project-hero-eyebrow span.sep-dot {
+  color: var(--outline);
+}
+
+.project-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 9vw, 120px);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--on-surface);
+  letter-spacing: -0.02em;
+}
+
+.project-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--outline);
+}
+
+.meta-value {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--on-surface);
+}
+
+.project-body {
+  padding: 80px 60px;
+}
+
+.project-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3.5vw, 40px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--on-surface);
+  line-height: 1.4;
+  max-width: 720px;
+  margin-bottom: 80px;
+  border-left: 2px solid var(--primary);
+  padding-left: 32px;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px;
+  margin-bottom: 80px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+  background: var(--surface-1);
+}
+
+.gallery-item:nth-child(1) {
+  grid-column: 1 / 3;
+}
+
+.gallery-item:nth-child(4) {
+  grid-column: 2 / 4;
+}
+
+.gallery-item-art {
+  width: 100%;
+  aspect-ratio: 16/9;
+  transition: transform 0.6s var(--ease-out-quart);
+}
+
+.gallery-item:nth-child(1) .gallery-item-art {
+  aspect-ratio: 16/7;
+}
+
+.gallery-item:nth-child(4) .gallery-item-art {
+  aspect-ratio: 16/7;
+}
+
+.gallery-item:hover .gallery-item-art {
+  transform: scale(1.04);
+}
+
+.gallery-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 16/9;
+  transition: transform 0.6s var(--ease-out-quart);
+}
+
+.gallery-item:nth-child(1) .gallery-item-img,
+.gallery-item:nth-child(4) .gallery-item-img {
+  aspect-ratio: 16/7;
+}
+
+.gallery-item:hover .gallery-item-img {
+  transform: scale(1.04);
+}
+
+/* CSS ART: Gallery pieces */
+.art-gallery-1 {
+  background: linear-gradient(200deg, #1a1a1a 0%, #0d0d0d 100%);
+  position: relative;
+}
+
+.art-gallery-1::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(170deg, transparent 60%, #252626 60%, #252626 62%, transparent 62%),
+    linear-gradient(10deg, transparent 40%, #1f2020 40%, #1f2020 42%, transparent 42%);
+}
+
+.art-gallery-1::after {
+  content: '';
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  bottom: 10%;
+  width: 35%;
+  background: linear-gradient(180deg, #2b2c2c 0%, #131313 100%);
+  clip-path: polygon(0% 5%, 100% 0%, 95% 100%, 5% 95%);
+  border: 1px solid rgba(227, 193, 150, 0.08);
+}
+
+.art-gallery-2 {
+  background: radial-gradient(circle at 60% 40%, #1f2020 0%, #090909 70%);
+  position: relative;
+}
+
+.art-gallery-2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.015) 20px,
+    rgba(255, 255, 255, 0.015) 21px
+  );
+}
+
+.art-gallery-2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border: 1px solid rgba(227, 193, 150, 0.15);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.art-gallery-3 {
+  background: linear-gradient(225deg, #131313 0%, #1a1a1a 100%);
+  position: relative;
+}
+
+.art-gallery-3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #252626 0%, transparent 40%, #252626 100%);
+  opacity: 0.4;
+}
+
+.art-gallery-3::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-dim), transparent);
+  opacity: 0.4;
+}
+
+.art-gallery-4 {
+  background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+  position: relative;
+}
+
+.art-gallery-4::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 30%, #191a1a 30%, #191a1a 70%, transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 255, 255, 0.01) 40px,
+      rgba(255, 255, 255, 0.01) 41px
+    );
+}
+
+.art-gallery-4::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(180deg, transparent, var(--primary), transparent);
+  opacity: 0.3;
+}
+
+.project-description {
+  max-width: 680px;
+  margin-bottom: 60px;
+}
+
+.project-description p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.back-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: color 0.3s, gap 0.3s var(--ease-monolith), border-color 0.3s;
+  border: 1px solid var(--outline-var);
+  padding: 12px 24px;
+  background: none;
+  text-decoration: none;
+}
+
+.back-nav:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  gap: 20px;
+}
+
+.project-not-found {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.project-not-found h2 {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--on-surface);
+  margin-bottom: 24px;
+}
+
+.project-not-found p {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--secondary);
+  margin-bottom: 32px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .project-hero { padding: 0 24px 60px; }
+  .project-body { padding: 60px 24px; }
+
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(4) { grid-column: auto; }
+
+  .gallery-item-art,
+  .gallery-item:nth-child(1) .gallery-item-art,
+  .gallery-item:nth-child(4) .gallery-item-art {
+    aspect-ratio: 16/9;
+  }
+}

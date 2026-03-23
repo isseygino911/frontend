@@ -1,0 +1,304 @@
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
+:root {
+  --bg:          #0e0e0e;
+  --surface-1:   #131313;
+  --surface-2:   #191a1a;
+  --surface-3:   #1f2020;
+  --surface-4:   #252626;
+  --surface-5:   #2b2c2c;
+  --surface-low: #000000;
+  --primary:     #e3c196;
+  --primary-dim: #d4b489;
+  --on-surface:  #e7e5e5;
+  --secondary:   #9f9d9d;
+  --outline:     #767575;
+  --outline-var: #484848;
+
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans:  'Manrope', system-ui, sans-serif;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-monolith:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   RESET & BASE
+========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: auto;
+  background: var(--bg);
+  color: var(--on-surface);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+img { display: block; max-width: 100%; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+ul, ol { list-style: none; }
+
+/* =========================================================
+   APP LAYOUT
+========================================================= */
+#app {
+  margin-left: 72px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* =========================================================
+   PAGE TRANSITIONS
+========================================================= */
+.page-enter {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.7s var(--ease-monolith), transform 0.7s var(--ease-monolith);
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s var(--ease-monolith), transform 0.7s var(--ease-monolith);
+}
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+.marquee-track {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid var(--outline-var);
+  border-bottom: 1px solid var(--outline-var);
+  padding: 14px 0;
+}
+
+.marquee-inner {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-inner span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.marquee-inner span.sep {
+  color: var(--primary);
+  margin: 0 16px;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =========================================================
+   SHARED BUTTONS
+========================================================= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--primary);
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, gap 0.3s var(--ease-monolith);
+}
+
+.btn-primary:hover {
+  background: var(--on-surface);
+  gap: 20px;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-surface);
+  border: 1px solid var(--outline-var);
+  padding: 14px 28px;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, gap 0.3s var(--ease-monolith);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  gap: 20px;
+}
+
+/* =========================================================
+   SHARED SECTION LABEL
+========================================================= */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--outline-var);
+}
+
+/* =========================================================
+   FOOTER BOTTOM BAR (shared)
+========================================================= */
+.footer-bottom {
+  padding: 24px 60px;
+  border-top: 1px solid var(--outline-var);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom-text {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--outline);
+}
+
+/* =========================================================
+   PAGE LOADER
+========================================================= */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--surface-low);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s var(--ease-monolith);
+}
+
+.page-loader.loaded {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-logo {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--primary);
+  overflow: hidden;
+}
+
+.loader-logo-inner {
+  display: block;
+  animation: loaderReveal 1s var(--ease-monolith) forwards;
+  clip-path: inset(0 100% 0 0);
+}
+
+@keyframes loaderReveal {
+  to { clip-path: inset(0 0% 0 0); }
+}
+
+/* =========================================================
+   UTILITY
+========================================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.section-accent-line {
+  width: 40px;
+  height: 1px;
+  background: var(--primary);
+  margin-bottom: 16px;
+}
+
+/* =========================================================
+   RESPONSIVE BASE
+========================================================= */
+@media (max-width: 900px) {
+  #app {
+    margin-left: 0;
+    margin-top: 56px;
+  }
+
+  .footer-bottom {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .section-label { margin-bottom: 32px; }
+}

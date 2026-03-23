@@ -1,0 +1,170 @@
+/* =========================================================
+   AUTH PAGES (Login / Register)
+========================================================= */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* CSS Art background */
+.auth-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.auth-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, #0e0e0e 0%, #131313 50%, #0a0a0a 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(255, 255, 255, 0.012) 80px,
+      rgba(255, 255, 255, 0.012) 81px
+    );
+}
+
+.auth-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(180deg, #131313 0%, #0e0e0e 100%);
+  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: 0.5;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface-1);
+  border: 1px solid var(--outline-var);
+  padding: 48px 40px;
+}
+
+.auth-wordmark {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  display: block;
+  text-decoration: none;
+}
+
+.auth-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--on-surface);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.auth-subheading {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--secondary);
+  margin-bottom: 36px;
+  letter-spacing: 0.04em;
+}
+
+/* Auth form inputs — ghost bottom-border style */
+.auth-form-group {
+  margin-bottom: 24px;
+}
+
+.auth-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 8px;
+}
+
+.auth-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--outline-var);
+  color: var(--on-surface);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 300;
+  padding: 10px 0;
+  outline: none;
+  transition: border-color 0.3s;
+  letter-spacing: 0.03em;
+}
+
+.auth-input:focus {
+  border-bottom-color: var(--primary);
+}
+
+.auth-input::placeholder {
+  color: var(--outline);
+  font-weight: 300;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.auth-error {
+  background: rgba(227, 80, 80, 0.08);
+  border: 1px solid rgba(227, 80, 80, 0.3);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: #e35050;
+  letter-spacing: 0.03em;
+}
+
+.auth-footer-link {
+  margin-top: 28px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--outline);
+  letter-spacing: 0.06em;
+}
+
+.auth-footer-link a {
+  color: var(--primary);
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.auth-footer-link a:hover { color: var(--on-surface); }
+
+.auth-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--outline-var);
+  margin: 28px 0;
+}

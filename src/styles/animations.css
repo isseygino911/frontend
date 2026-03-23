@@ -1,0 +1,60 @@
+/* =========================================================
+   ANIMATION SYSTEM
+   Elements with [data-animate] start hidden and transition
+   to visible when .is-visible is added by IntersectionObserver.
+========================================================= */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-monolith),
+              transform 0.8s var(--ease-monolith);
+}
+
+[data-animate="from-left"] {
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+[data-animate="from-right"] {
+  transform: translateX(60px);
+  opacity: 0;
+}
+
+[data-animate="scale-in"] {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================
+   HERO TEXT CLIP-PATH REVEAL
+========================================================= */
+.hero-display-inner {
+  display: block;
+  clip-path: inset(-0.15em 100% -0.1em 0);
+  transition: clip-path 1.2s var(--ease-monolith);
+}
+
+.hero-display-inner.revealed {
+  clip-path: inset(-0.15em 0% -0.1em 0);
+}
+
+/* =========================================================
+   SCROLL PULSE (hero hint line)
+========================================================= */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.1); }
+}
+
+/* =========================================================
+   LOADER REVEAL
+========================================================= */
+@keyframes loaderReveal {
+  to { clip-path: inset(0 0% 0 0); }
+}
