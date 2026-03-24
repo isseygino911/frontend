@@ -15,7 +15,8 @@ export function useAnimateOnScroll() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove('is-visible');
           }
         });
       },
@@ -26,10 +27,10 @@ export function useAnimateOnScroll() {
     const vh = window.innerHeight;
 
     targets.forEach((el) => {
-      // Immediately reveal elements that are already in the viewport (above-fold)
-      // to prevent blank sections on initial page render.
+      // Only immediately reveal elements already visible in the viewport on load.
+      // Everything else is observed and animates when it enters the viewport.
       const rect = el.getBoundingClientRect();
-      if (rect.top < vh * 1.05) {
+      if (rect.top < vh && rect.bottom > 0) {
         el.classList.add('is-visible');
       } else {
         observer.observe(el);
