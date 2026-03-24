@@ -150,61 +150,150 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── Projects grid ─────────────────────────────────── */}
-      <div className="projects-section">
-        <p className="section-label" data-animate="from-left">
-          Selected Works
-        </p>
+      {/* ── Selected Works — Layered Composition ───────────── */}
+      <div className="works-section">
+        <div className="works-header" data-animate="from-left">
+          <p className="works-eyebrow">Portfolio</p>
+          <h2 className="works-title">
+            Selected
+            <br />
+            <span className="works-title-accent">Works</span>
+          </h2>
+          <div className="works-title-line" aria-hidden="true" />
+        </div>
 
-        <div className="projects-grid">
-          {featuredProjects.map((p, i) => {
-            const isWide = i === 3;
-            return (
+        <div className="works-composition">
+          {/* Layer 1: Featured Project — Large, overlapping left */}
+          {featuredProjects[0] && (
+            <article
+              className="work-card work-card-featured"
+              data-animate="layer-up"
+              onClick={() => navigate(`/project/${featuredProjects[0].key}`)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View project: ${featuredProjects[0].title}`}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(`/project/${featuredProjects[0].key}`)}
+            >
+              <div className="work-card-frame work-card-frame-inverted" aria-hidden="true">
+                <span className="frame-corner frame-corner-tl" />
+                <span className="frame-corner frame-corner-br" />
+              </div>
+              <div className="work-card-image-wrap">
+                <img
+                  src={featuredProjects[0].images?.hero}
+                  alt={featuredProjects[0].title}
+                  loading="eager"
+                />
+                <div className="work-card-image-overlay" />
+              </div>
+              <div className="work-card-content">
+                <div className="work-card-meta">
+                  <span className="work-index">01</span>
+                  <span className="work-year">{featuredProjects[0].year}</span>
+                </div>
+                <h3 className="work-card-title">{featuredProjects[0].title}</h3>
+                <p className="work-card-location">{featuredProjects[0].location}</p>
+                <div className="work-card-cta">
+                  <span>Explore</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
+                </div>
+              </div>
+              <div className="work-card-backdrop" aria-hidden="true" />
+            </article>
+          )}
+
+          {/* Layer 2: Secondary Projects — Offset grid with overlap */}
+          <div className="works-secondary">
+            {featuredProjects.slice(1, 3).map((p, i) => (
               <article
                 key={p.key}
-                className="project-card"
-                data-animate={i === 0 ? 'scale-in' : i < 3 ? 'from-right' : undefined}
-                style={isWide ? { gridColumn: '1 / -1' } : undefined}
+                className={`work-card work-card-secondary work-card-offset-${i}`}
+                data-animate="layer-up"
+                style={{ animationDelay: `${(i + 1) * 0.1}s` }}
                 onClick={() => navigate(`/project/${p.key}`)}
                 role="button"
                 tabIndex={0}
                 aria-label={`View project: ${p.title}`}
                 onKeyDown={(e) => e.key === 'Enter' && navigate(`/project/${p.key}`)}
               >
-                <div
-                  className="project-card-image"
-                  style={isWide ? { aspectRatio: '21/7', minHeight: 'auto' } : undefined}
-                >
+                <div className="work-card-image-wrap">
                   <img
                     src={p.images?.hero}
                     alt={p.title}
-                    className="project-card-img"
-                    loading={i === 0 ? 'eager' : 'lazy'}
+                    loading="lazy"
                   />
+                  <div className="work-card-image-overlay" />
                 </div>
-
-                <div className={`project-card-info${isWide ? ' project-card-info-wide' : ''}`}>
-                  <div>
-                    <div className="project-card-meta">
-                      <span className="project-code">{p.code}</span>
-                      <span className="project-year" style={isWide ? { marginLeft: '16px' } : undefined}>
-                        {p.year}
-                      </span>
-                    </div>
-                    <h2 className="project-title">{p.title}</h2>
-                    <p className="project-location">{p.location}</p>
-                  </div>
-                  {isWide && (
-                    <div className="project-card-type-label">{p.type}</div>
-                  )}
+                <div className="work-card-content-compact">
+                  <span className="work-index">0{i + 2}</span>
+                  <h3 className="work-card-title-compact">{p.title}</h3>
+                  <p className="work-card-location-compact">{p.location}</p>
                 </div>
-
-                <div className="project-card-hover-reveal" aria-hidden="true">
-                  <span className="view-project">View Project →</span>
-                </div>
+                {/* Inverted border decoration */}
+                <div className="work-card-border work-card-border-left" aria-hidden="true" />
+                <div className="work-card-border work-card-border-bottom" aria-hidden="true" />
               </article>
-            );
-          })}
+            ))}
+          </div>
+
+          {/* Layer 3: Tertiary — Wide strip with fragment overlap */}
+          {featuredProjects[3] && (
+            <article
+              className="work-card work-card-wide"
+              data-animate="layer-up"
+              style={{ animationDelay: '0.3s' }}
+              onClick={() => navigate(`/project/${featuredProjects[3].key}`)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View project: ${featuredProjects[3].title}`}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(`/project/${featuredProjects[3].key}`)}
+            >
+              <div className="work-card-wide-fragment" aria-hidden="true">
+                <span className="fragment-square" />
+                <span className="fragment-line" />
+              </div>
+              <div className="work-card-wide-inner">
+                <div className="work-card-image-wrap work-card-image-wrap-wide">
+                  <img
+                    src={featuredProjects[3].images?.hero}
+                    alt={featuredProjects[3].title}
+                    loading="lazy"
+                  />
+                  <div className="work-card-image-overlay" />
+                </div>
+                <div className="work-card-wide-content">
+                  <div className="work-card-meta">
+                    <span className="work-index">04</span>
+                    <span className="work-code">{featuredProjects[3].code}</span>
+                  </div>
+                  <h3 className="work-card-title">{featuredProjects[3].title}</h3>
+                  <p className="work-card-wide-type">{featuredProjects[3].type}</p>
+                  <div className="work-card-cta work-card-cta-minimal">
+                    <span>View Project</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M1 6H11M11 6L6 1M11 6L6 11" stroke="currentColor" strokeWidth="1.5"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              {/* Inverted L-shape border */}
+              <div className="work-card-frame work-card-frame-wide" aria-hidden="true">
+                <span className="frame-edge frame-edge-top" />
+                <span className="frame-edge frame-edge-right" />
+              </div>
+            </article>
+          )}
+        </div>
+
+        {/* Archive link */}
+        <div className="works-archive-link" data-animate="from-right">
+          <button className="works-archive-btn" onClick={() => navigate('/archive')}>
+            <span className="archive-btn-text">View All Projects</span>
+            <span className="archive-btn-count">{featuredProjects.length > 4 ? featuredProjects.length : '8'}</span>
+            <span className="archive-btn-line" aria-hidden="true" />
+          </button>
         </div>
       </div>
 
