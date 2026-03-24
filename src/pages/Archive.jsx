@@ -21,9 +21,9 @@ export default function Archive() {
   return (
     <div id="page-archive">
       <div className="archive-page">
-        <div className="archive-header" data-animate>
-          <p className="section-label">Complete Works</p>
-          <h1 className="archive-headline">Archive</h1>
+        <div className="archive-header">
+          <p className="section-label" data-animate style={{ transitionDelay: '0ms' }}>Complete Works</p>
+          <h1 className="archive-headline" data-animate style={{ transitionDelay: '80ms' }}>Archive</h1>
         </div>
 
         {loading ? (
@@ -35,6 +35,7 @@ export default function Archive() {
                 key={p.key}
                 className="archive-item"
                 data-animate
+                style={{ transitionDelay: `${160 + i * 60}ms` }}
                 role="listitem"
                 tabIndex={0}
                 aria-label={`${p.title}, ${p.year}`}

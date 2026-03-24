@@ -2,110 +2,175 @@ import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import '../styles/philosophy.css';
 
 /**
- * Philosophy page — stroke headline, three tenets, pull quote.
+ * Philosophy page — rebuilt to match the Stitch "Avant-Garde" design.
+ * Sections: Hero (full-bleed image), Organic Brutalism (asymmetric),
+ * Chromatic Silence (floating module), PRECISION (typography overlay),
+ * The Human Void (final module), Footer.
  */
 export default function Philosophy() {
   useAnimateOnScroll();
 
-  const tenets = [
-    {
-      num:   '01',
-      title: ['Chromatic', 'Silence'],
-      art:   'art-tenet-1',
-      body: [
-        'Colour is not decoration. It is the temperature of a room, the emotional register of a threshold. Our palette begins with the earth — raw umber, volcanic grey, the pale gold of winter light on limestone.',
-        'We do not add colour. We reveal it. The concrete takes its tone from the aggregate. The render carries the memory of its mixing. Nothing is applied; everything is inherent.',
-      ],
-    },
-    {
-      num:   '02',
-      title: ['Form', 'Follows', 'Weight'],
-      art:   'art-tenet-2',
-      body: [
-        'Sullivan said form follows function. We say form follows weight — the psychological mass of a wall, the tectonic honesty of a joint, the way a room announces its structure without apology.',
-        'We do not dress the structure. The structure is the architecture. A beam is not concealed; it is the room\'s autobiography. An aperture is not a window; it is a proposal about light.',
-      ],
-    },
-    {
-      num:   '03',
-      title: ['The', 'Human Void'],
-      art:   'art-tenet-3',
-      body: [
-        'Every space we design contains a void proportioned to the human body — a negative volume that holds the person without enclosing them. The void is not emptiness; it is the architecture\'s most essential gesture.',
-        'We measure success not by what is built but by what is preserved — the silence between walls, the air between surfaces, the pause between the architecture and its inhabitant.',
-      ],
-    },
-  ];
-
   return (
     <div id="page-philosophy">
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <div className="philosophy-hero" aria-label="Philosophy hero">
-        <div className="philosophy-hero-bg" aria-hidden="true" />
 
-        <div className="philosophy-hero-content">
-          <p className="section-label" data-animate="from-left">
-            Our Conviction
-          </p>
-          <h1 className="philosophy-headline">
-            <span className="stroke" data-animate="from-left">ORGANIC</span>
-            <span className="stroke-primary" data-animate="from-left">BRUTAL</span>
-            <span className="stroke" data-animate="from-left">ISM</span>
+      {/* ── Hero ───────────────────────────────────────────── */}
+      <section className="phil-hero" aria-label="Philosophy hero">
+        <div className="phil-hero-img-wrap" aria-hidden="true">
+          <img
+            className="phil-hero-img"
+            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80"
+            alt="Minimalist brutalist concrete building exterior with dramatic shadows"
+          />
+          <div className="phil-hero-overlay" />
+        </div>
+
+        <div className="phil-hero-content">
+          <span className="section-label" data-animate="from-left">Atelier Philosophy 01</span>
+          <h1 className="phil-hero-headline" data-animate="from-left">
+            THE <br />
+            <em>ART</em> OF <br />
+            STRUCTURE
           </h1>
-        </div>
-
-        <div className="philosophy-intro" data-animate>
-          <p>
-            We build from the tension between the natural and the constructed —
-            spaces that breathe through their contradictions, that find silence
-            in the weight of material, and meaning in the geometry of restraint.
+          <p className="phil-hero-body" data-animate>
+            A departure from the ornamental. We build not for the eye, but for the
+            soul that inhabits the void. Every line is a definitive statement of existence.
           </p>
         </div>
-      </div>
 
-      {/* ── Tenets ────────────────────────────────────────── */}
-      <div className="tenets-section">
-        {tenets.map((t) => (
-          <div key={t.num} className="tenet" data-animate>
-            <div className="tenet-number">{t.num}</div>
-            <div>
-              <h2 className="tenet-title">
-                {t.title.map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < t.title.length - 1 && <br />}
-                  </span>
-                ))}
-              </h2>
-              <div className={`tenet-art ${t.art}`} />
-            </div>
-            <div className="tenet-body">
-              {t.body.map((para, i) => (
-                <p key={i}>{para}</p>
-              ))}
+        <div className="phil-hero-rule" aria-hidden="true">
+          <div className="phil-hero-rule-line" />
+          <div className="phil-hero-rule-mark" />
+        </div>
+      </section>
+
+      {/* ── Organic Brutalism (asymmetric) ─────────────────── */}
+      <section className="phil-brutalism" aria-label="Organic Brutalism">
+        <div className="phil-brutalism-left" data-animate="from-left">
+          <div className="phil-brutalism-ghost" aria-hidden="true">FORM</div>
+          <img
+            className="phil-brutalism-img"
+            src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80"
+            alt="Abstract architectural lines and sharp angles"
+          />
+          <div className="phil-brutalism-caption">
+            <span className="phil-caption-label">Perspective / 001</span>
+            <span className="phil-caption-quote">"The weight of stone is the measure of silence."</span>
+          </div>
+        </div>
+
+        <div className="phil-brutalism-right" data-animate>
+          <h2 className="phil-brutalism-title">
+            ORGANIC <br />
+            <em>BRUTALISM</em>
+          </h2>
+          <div className="phil-brutalism-body">
+            <p>
+              We reject the sterile perfection of modern CAD designs. Our work celebrates the
+              raw, the tactile, and the imperfect. Brutalism is not about coldness; it is about
+              honesty. The honesty of material, the honesty of purpose.
+            </p>
+            <p className="phil-brutalism-indent">
+              In the intersection of rough concrete and soft light, we find the sublime.
+              Our structures are monoliths that breathe with the changing shadows of the day.
+            </p>
+          </div>
+          <button className="phil-cta">Explore Methodology</button>
+        </div>
+      </section>
+
+      {/* ── Chromatic Silence ──────────────────────────────── */}
+      <section className="phil-chromatic" aria-label="Chromatic Silence">
+        <div className="phil-chromatic-mask" aria-hidden="true" />
+
+        <div className="phil-chromatic-inner">
+          <div className="phil-chromatic-text" data-animate="from-left">
+            <h3 className="phil-chromatic-title">
+              CHROMATIC <br /><em>SILENCE</em>
+            </h3>
+            <p className="phil-chromatic-body">
+              Colors are distractions. We work within the spectrum of shadows. From the deep
+              ebony of charred cedar to the ghost-grey of weathered slate, our palette is a
+              dialogue with time.
+            </p>
+            <div className="phil-palette" aria-label="Color palette" role="presentation">
+              <div style={{ background: '#000000' }} />
+              <div style={{ background: '#0e0e0e' }} />
+              <div style={{ background: '#191a1a' }} />
+              <div style={{ background: '#2b2c2c' }} />
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* ── Pull quote ────────────────────────────────────── */}
-      <div className="pull-quote" data-animate>
-        <blockquote className="pull-quote-text">
-          "The most honest material is the one that{' '}
-          <span className="highlight">refuses to pretend</span> it is something
-          other than what it is."
-        </blockquote>
-        <p className="pull-quote-attr">— II Design, Manifesto — 2019</p>
-      </div>
+          <div className="phil-chromatic-img-wrap" data-animate>
+            <img
+              className="phil-chromatic-img"
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+              alt="Interior with sharp sunlight shadows on a minimal wall"
+            />
+            <div className="phil-chromatic-badge" aria-hidden="true">
+              <span className="phil-chromatic-badge-num">03</span>
+              <span className="phil-chromatic-badge-label">Luce Sombra</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div className="footer-bottom">
-        <span className="footer-bottom-text">
-          © 2024 II Design Studio. All rights reserved.
-        </span>
-        <span className="footer-bottom-text">
-          Philosophy — Organic Brutalism
-        </span>
-      </div>
+      {/* ── PRECISION typography overlay ───────────────────── */}
+      <section className="phil-precision" aria-label="The Atelier Standard">
+        <div className="phil-precision-ghost" aria-hidden="true">PRECISION</div>
+        <div className="phil-precision-content" data-animate>
+          <span className="section-label">The Atelier Standard</span>
+          <p className="phil-precision-statement">
+            Architecture is the <em>geometry</em> of focus. We remove the clutter to find the core.
+          </p>
+          <div className="phil-precision-rule" aria-hidden="true" />
+        </div>
+      </section>
+
+      {/* ── The Human Void ─────────────────────────────────── */}
+      <section className="phil-void" aria-label="The Human Void">
+        <div className="phil-void-img-wrap" data-animate="from-left">
+          <img
+            className="phil-void-img"
+            src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80"
+            alt="High-end minimal studio space with clean lines"
+          />
+        </div>
+
+        <div className="phil-void-text" data-animate>
+          <span className="section-label">Philosophy 03</span>
+          <h2 className="phil-void-title">
+            THE <br />
+            HUMAN <br />
+            <em>VOID</em>
+          </h2>
+          <p className="phil-void-body">
+            A space is only complete when it is empty. We design for the moments of quiet
+            contemplation, the "voids" where human consciousness can expand without the
+            friction of unnecessary detail.
+          </p>
+          <div className="phil-void-links">
+            <a href="#" className="phil-void-link primary" onClick={(e) => e.preventDefault()}>Manifesto PDF</a>
+            <a href="#" className="phil-void-link" onClick={(e) => e.preventDefault()}>Process Reel</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ─────────────────────────────────────────── */}
+      <footer className="phil-footer">
+        <div className="phil-footer-left">
+          <div className="phil-footer-logo">II&#8209;DESIGN</div>
+          <p className="phil-footer-meta">
+            Architectural Atelier<br />
+            Global Practice<br />
+            © 2024 All Rights Reserved
+          </p>
+        </div>
+        <div className="phil-footer-right">
+          <p className="phil-footer-tagline">Stay silent. Create depth.</p>
+          <span className="phil-footer-sub">Philosophy — Organic Brutalism</span>
+        </div>
+      </footer>
+
     </div>
   );
 }

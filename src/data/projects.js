@@ -1,7 +1,7 @@
 /**
  * Mock project data — frontend only.
  * Replace with real API calls once backend is ready.
- * Images: Unsplash source hotlinks (no API key required).
+ * Images: Unsplash direct links (source.unsplash.com is deprecated).
  */
 export const PROJECTS = [
   {
@@ -17,12 +17,12 @@ export const PROJECTS = [
     desc2:    'The plan is a single rectangle, broken only by a vertical void that draws light from the roof to the basement. Every shadow is designed.',
     desc3:    'Commission: Private Residential · Completion: Spring 2024',
     images: {
-      hero:    'https://source.unsplash.com/rEtsek-3HFk',
+      hero:    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/z7bIOuxTyNo/800x600',
-        'https://source.unsplash.com/Vzm3aSLcnmg/800x600',
-        'https://source.unsplash.com/7WQlCMzGGI8/800x600',
-        'https://source.unsplash.com/1K65uaupMVA/800x600',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -39,12 +39,12 @@ export const PROJECTS = [
     desc2:    'Inside, the spatial language shifts to warm timber and rice paper — a deliberate opposition that makes both materials feel more itself.',
     desc3:    'Commission: Private Residential · Completion: Autumn 2023',
     images: {
-      hero:    'https://source.unsplash.com/M4Uk_NYBhFU/1600x900',
+      hero:    'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/LD-M-bzJgNY/800x600',
-        'https://source.unsplash.com/cPFgk0bc1ic/800x600',
-        'https://source.unsplash.com/pFv5PYlDQBk/800x600',
-        'https://source.unsplash.com/A-13PmQkP1o/800x600',
+        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -61,12 +61,12 @@ export const PROJECTS = [
     desc2:    'The program is minimal: one room, one stair, one threshold. The architecture is the program.',
     desc3:    'Commission: Municipal Cultural Foundation · Completion: Winter 2023',
     images: {
-      hero:    'https://source.unsplash.com/MM5rpMpC9k4/1600x900',
+      hero:    'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/Mfb4TEExET4/800x600',
-        'https://source.unsplash.com/1lGVTC2mb6w/800x600',
-        'https://source.unsplash.com/gNY6RsMIsPo/800x600',
-        'https://source.unsplash.com/CJJDaGZwwls/800x600',
+        'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1494526585095-c41746248156?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -83,12 +83,12 @@ export const PROJECTS = [
     desc2:    'The ceiling is the underside of the slab — exposed, imperfect, authentic. Furniture is positioned like sculpture in a gallery.',
     desc3:    'Commission: Retail Brand Identity · Completion: Summer 2024',
     images: {
-      hero:    'https://source.unsplash.com/sSkElz_pb3Q/1600x900',
+      hero:    'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/VLRzyheT45g/800x600',
-        'https://source.unsplash.com/DCorP3hIl3k/800x600',
-        'https://source.unsplash.com/_42kwMUmZw0/800x600',
-        'https://source.unsplash.com/0I0lfvXvOhw/800x600',
+        'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -105,12 +105,12 @@ export const PROJECTS = [
     desc2:    'A residential sanctuary where every threshold is negotiated through light and shadow rather than walls.',
     desc3:    'Commission: Private Estate · Completion: Ongoing 2024',
     images: {
-      hero:    'https://source.unsplash.com/Y3RO2y6HQ08/1600x900',
+      hero:    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/4iEuIV8_84k/800x600',
-        'https://source.unsplash.com/stAs-TRIYUI/800x600',
-        'https://source.unsplash.com/KqrbNYj7QJQ/800x600',
-        'https://source.unsplash.com/F-slnkFvcag/800x600',
+        'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585153490-76fb20a32601?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600047509358-9c6675acd0b8?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -127,12 +127,12 @@ export const PROJECTS = [
     desc2:    'At night the building ceases to exist — only the aperture remains, framing a circle of sky.',
     desc3:    'Commission: Research Foundation · Completion: 2023',
     images: {
-      hero:    'https://source.unsplash.com/wgwiOdU4x00/1600x900',
+      hero:    'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/oaPkwKZrpSw/800x600',
-        'https://source.unsplash.com/PiqHSHYO3Uw/800x600',
-        'https://source.unsplash.com/ksV9gZs7aDg/800x600',
-        'https://source.unsplash.com/aa27R4rTsVc/800x600',
+        'https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -149,12 +149,12 @@ export const PROJECTS = [
     desc2:    'Steel beams left exposed, concrete floors left unsealed, windows left unadorned.',
     desc3:    'Commission: Private Residential · Completion: 2022',
     images: {
-      hero:    'https://source.unsplash.com/U-k6XLlml1I/1600x900',
+      hero:    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/1GY7rUTRnRI/800x600',
-        'https://source.unsplash.com/VLRzyheT45g/800x600',
-        'https://source.unsplash.com/XkkHcANte1w/800x600',
-        'https://source.unsplash.com/BWZd1xT4QEM/800x600',
+        'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1484154218962-a1c002085d2f?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1499916078039-922301b0eb9b?w=800&h=600&fit=crop',
       ],
     },
   },
@@ -171,12 +171,12 @@ export const PROJECTS = [
     desc2:    'Each floor cantilevers slightly from the last, creating deep planting troughs that shade the floors below.',
     desc3:    'Commission: Urban Development Corp · Completion: 2022',
     images: {
-      hero:    'https://source.unsplash.com/YnxHebvf-VI/1600x900',
+      hero:    'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1600&h=900&fit=crop',
       gallery: [
-        'https://source.unsplash.com/Y7ufx8R8PM0/800x600',
-        'https://source.unsplash.com/g6NccvSor1Q/800x600',
-        'https://source.unsplash.com/ZfYyQ7DemHE/800x600',
-        'https://source.unsplash.com/0NJ9urGXrIg/800x600',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1472224371017-08207f84aaae?w=800&h=600&fit=crop',
       ],
     },
   },
