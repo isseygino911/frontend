@@ -35,12 +35,12 @@
 }
 
 .hero-plane-1 {
-  top: 12%;
-  left: 8%;
-  width: clamp(240px, 28vw, 420px);
-  height: clamp(360px, 55vh, 640px);
+  top: -5%;
+  left: 10%;
+  width: 35vw;
+  height: 85vh;
   transform: rotate(-12deg);
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 .hero-plane-1 img {
@@ -48,12 +48,12 @@
 }
 
 .hero-plane-2 {
-  bottom: 18%;
-  right: 12%;
-  width: clamp(280px, 32vw, 500px);
-  height: clamp(160px, 22vh, 280px);
+  bottom: 10%;
+  right: 5%;
+  width: 42vw;
+  height: 35vh;
   transform: rotate(6deg);
-  opacity: 0.4;
+  opacity: 0.38;
 }
 
 .hero-plane-2 img {
@@ -63,10 +63,10 @@
 /* Rotating diamond */
 .hero-diamond {
   position: absolute;
-  top: 28%;
-  right: 6%;
-  width: clamp(180px, 18vw, 300px);
-  height: clamp(180px, 18vw, 300px);
+  top: 20%;
+  right: 18%;
+  width: 22vw;
+  height: 22vw;
   border: 1px solid rgba(227, 193, 150, 0.2);
   background: rgba(227, 193, 150, 0.04);
   transform: rotate(45deg);
@@ -76,13 +76,17 @@
 
 /* ── Fragmented typography ──────────────────────────────── */
 .hero-letters {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 10;
   display: flex;
-  align-items: baseline;
-  gap: clamp(8px, 2vw, 40px);
+  align-items: center;
+  justify-content: center;
+  gap: 0;
   pointer-events: none;
   user-select: none;
+  /* shift the whole cluster slightly left so IGN bleeds off-right */
+  padding-left: 4vw;
 }
 
 .hero-letter {
@@ -91,37 +95,43 @@
   letter-spacing: -0.02em;
   will-change: transform;
   transition: transform 1s var(--ease-monolith);
+  flex-shrink: 0;
 }
 
+/* II — massive, solid, anchored */
 .hero-letter-ii {
-  font-size: clamp(120px, 20vw, 340px);
+  font-size: clamp(120px, 22vw, 380px);
   font-weight: 200;
   color: var(--on-surface);
   opacity: 0.92;
+  margin-right: clamp(8px, 1.5vw, 24px);
 }
 
+/* DES — italic gold, offset up */
 .hero-letter-des {
-  font-size: clamp(80px, 14vw, 240px);
+  font-size: clamp(72px, 15vw, 260px);
   font-weight: 100;
   font-style: italic;
   color: rgba(227, 193, 150, 0.45);
-  transform: translateY(clamp(-30px, -4vw, -80px));
+  transform: translateY(-12%);
+  margin-right: clamp(4px, 1vw, 16px);
 }
 
+/* IGN — semi-transparent, offset down, bleeds off right edge */
 .hero-letter-ign {
-  font-size: clamp(100px, 17vw, 290px);
+  font-size: clamp(96px, 18vw, 310px);
   font-weight: 300;
-  color: rgba(231, 229, 229, 0.6);
-  transform: translateY(clamp(16px, 2vw, 48px));
+  color: rgba(231, 229, 229, 0.58);
+  transform: translateY(8%);
 }
 
 /* ── Bottom-left subtitle ───────────────────────────────── */
 .hero-subtitle-block {
   position: absolute;
-  bottom: clamp(80px, 10vh, 160px);
+  bottom: clamp(48px, 8vh, 120px);
   left: clamp(80px, 8vw, 160px);
   z-index: 20;
-  max-width: 320px;
+  max-width: 340px;
 }
 
 .hero-eyebrow {
@@ -146,8 +156,8 @@
 /* ── CTA block ──────────────────────────────────────────── */
 .hero-cta-block {
   position: absolute;
-  top: 62%;
-  right: 22%;
+  bottom: clamp(48px, 10vh, 140px);
+  right: clamp(60px, 22%, 320px);
   z-index: 20;
   display: flex;
   flex-direction: column;
@@ -619,7 +629,60 @@
    RESPONSIVE
 ========================================================= */
 @media (max-width: 900px) {
-  .hero-section { padding: 0 24px 60px; }
+  .hero-section { padding: 0; }
+
+  /* Planes — smaller on mobile, let the typography dominate */
+  .hero-plane-1 {
+    width: 55vw;
+    height: 60vh;
+    top: 5%;
+    left: 0%;
+  }
+
+  .hero-plane-2 {
+    width: 60vw;
+    height: 28vh;
+    bottom: 12%;
+    right: 0%;
+  }
+
+  .hero-diamond {
+    width: 36vw;
+    height: 36vw;
+    top: 22%;
+    right: 8%;
+  }
+
+  /* Stack subtitle + CTA together at bottom, no overlap */
+  .hero-subtitle-block {
+    position: absolute;
+    bottom: 80px;
+    left: 24px;
+    right: 24px;
+    max-width: none;
+  }
+
+  .hero-cta-block {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-cta-line {
+    width: clamp(40px, 8vw, 64px);
+    height: 1px;
+    background: var(--primary);
+    margin-bottom: 0;
+  }
+
+  .hero-cta-block:hover .hero-cta-line {
+    width: 80px;
+    height: 1px;
+  }
 
   .projects-grid {
     grid-template-columns: 1fr;
