@@ -24,12 +24,12 @@ export default function Home() {
 
   useAnimateOnScroll();
 
-  // Hero text clip-path reveal on mount
+  // Hero letters fade in on mount
   useEffect(() => {
     const timer = setTimeout(() => {
-      line1Ref.current?.classList.add('revealed');
-      line2Ref.current?.classList.add('revealed');
-    }, 120);
+      line1Ref.current?.classList.add('hero-letter-visible');
+      line2Ref.current?.classList.add('hero-letter-visible');
+    }, 80);
     return () => clearTimeout(timer);
   }, []);
 
@@ -82,42 +82,50 @@ export default function Home() {
     <div id="page-home">
       {/* ── Hero ──────────────────────────────────────────── */}
       <section className="hero-section" aria-label="Hero">
-        <div className="hero-bg" aria-hidden="true">
-          <div className="depth-layer" ref={depth1Ref}>
-            <div className="hero-geo-1" />
+
+        {/* Floating image planes */}
+        <div className="hero-planes" aria-hidden="true">
+          <div className="hero-plane hero-plane-1" ref={depth1Ref}>
+            <img
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80"
+              alt=""
+            />
           </div>
-          <div className="depth-layer" ref={depth2Ref}>
-            <div className="hero-geo-2" />
-            <div className="hero-geo-accent" />
-            <div className="hero-geo-accent-2" />
+          <div className="hero-plane hero-plane-2" ref={depth2Ref}>
+            <img
+              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80"
+              alt=""
+            />
           </div>
-          <div className="depth-layer" ref={depth3Ref}>
-            <div className="hero-geo-3" />
-          </div>
-          <div className="hero-noise" />
+          <div className="hero-diamond" ref={depth3Ref} />
         </div>
 
-        <div className="hero-content">
-          <p className="hero-eyebrow">Studio — 2019 — Organic Brutalism</p>
-          <h1 className="hero-display" aria-label="II Design">
-            <span className="hero-display-line">
-              <span className="hero-display-inner" ref={line1Ref}>
-                II
-              </span>
-            </span>
-            <span className="hero-display-line">
-              <span className="hero-display-inner outline-text" ref={line2Ref}>
-                DESIGN
-              </span>
-            </span>
-          </h1>
-          <p className="hero-subtitle">Spatial Deconstruction&nbsp;&nbsp;001</p>
+        {/* Fragmented typography */}
+        <div className="hero-letters" aria-label="II Design">
+          <span className="hero-letter hero-letter-ii" ref={line1Ref}>II</span>
+          <span className="hero-letter hero-letter-des" ref={line2Ref}>DES</span>
+          <span className="hero-letter hero-letter-ign">IGN</span>
         </div>
 
-        <div className="hero-scroll-hint" aria-hidden="true">
-          <div className="scroll-line" />
-          <span>Scroll</span>
+        {/* Bottom-left subtitle */}
+        <div className="hero-subtitle-block">
+          <p className="hero-eyebrow">Spatial Deconstruction&nbsp;&nbsp;001</p>
+          <p className="hero-tagline">
+            The architecture of the invisible, articulated<br />
+            through fragmented planes and captured silence.
+          </p>
         </div>
+
+        {/* CTA — vertical line + button */}
+        <div className="hero-cta-block">
+          <div className="hero-cta-line" aria-hidden="true" />
+          <button className="hero-cta-btn" onClick={() => navigate('/archive')}>
+            Begin Exploration
+          </button>
+        </div>
+
+        {/* Bottom gradient fade */}
+        <div className="hero-fade-bottom" aria-hidden="true" />
       </section>
 
       {/* ── Marquee ───────────────────────────────────────── */}
