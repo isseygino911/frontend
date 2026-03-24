@@ -297,6 +297,59 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ── Studio Manifesto ──────────────────────────────── */}
+      <section className="studio-manifesto" aria-label="Studio Manifesto">
+        <div className="studio-manifesto-bg" aria-hidden="true" />
+        <div className="studio-manifesto-inner">
+
+          {/* Left: ghost headline + numbered principles */}
+          <div className="studio-manifesto-left" data-animate="from-left">
+            <h2 className="studio-manifesto-headline" aria-hidden="true">Manifesto</h2>
+            <div className="studio-manifesto-principles">
+              <div className="studio-manifesto-principle">
+                <span className="principle-num">01</span>
+                <p className="principle-text">
+                  Respect the weight of material. Concrete is not just structure;
+                  it is the frozen history of the site.
+                </p>
+              </div>
+              <div className="studio-manifesto-principle">
+                <span className="principle-num">02</span>
+                <p className="principle-text">
+                  The most important room in a building is the space immediately
+                  outside it. The void defines the solid.
+                </p>
+              </div>
+              <div className="studio-manifesto-principle">
+                <span className="principle-num">03</span>
+                <p className="principle-text">
+                  Light should be treated as a physical material. It must be
+                  carved, directed, and contained.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: image with quote overlaid */}
+          <div className="studio-manifesto-right" data-animate>
+            <div className="studio-manifesto-img-wrap">
+              <div className="studio-manifesto-border" aria-hidden="true" />
+              <img
+                src="https://images.unsplash.com/photo-1493219686142-5a8641badc78?w=800&q=80"
+                alt=""
+                className="studio-manifesto-img"
+              />
+              <div className="studio-manifesto-quote-overlay">
+                <blockquote className="studio-manifesto-quote">
+                  "In the shadow of the monolith, we find the truth of the occupant."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* ── Manifesto strip ───────────────────────────────── */}
       <div className="manifesto-strip" data-animate>
         <div className="manifesto-stat">

@@ -757,6 +757,138 @@
 }
 
 /* =========================================================
+   STUDIO MANIFESTO SECTION
+========================================================= */
+.studio-manifesto {
+  position: relative;
+  padding: 160px 80px 160px 160px;
+}
+
+/* Subtle gradient background matching Stitch */
+.studio-manifesto-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--surface-low) 0%, var(--bg) 100%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.studio-manifesto-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ── Left: ghost headline + principles ───────────────── */
+.studio-manifesto-left {
+  position: relative;
+}
+
+/* Giant ghost "Manifesto" — decorative, behind principles */
+.studio-manifesto-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(80px, 10vw, 160px);
+  font-weight: 200;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: #2b2c2c;
+  user-select: none;
+  pointer-events: none;
+  margin-bottom: 48px;
+}
+
+.studio-manifesto-principles {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 540px;
+}
+
+.studio-manifesto-principle {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.studio-manifesto-principle:hover .principle-num {
+  opacity: 1;
+}
+
+.principle-num {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--primary);
+  opacity: 0.4;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 6px;
+  transition: opacity 0.3s;
+}
+
+.principle-text {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(231, 229, 229, 0.8);
+  padding-top: 6px;
+}
+
+/* ── Right: image with quote overlay ─────────────────── */
+.studio-manifesto-right {
+  position: relative;
+}
+
+.studio-manifesto-img-wrap {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+.studio-manifesto-border {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(72, 72, 72, 0.1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.studio-manifesto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  opacity: 0.3;
+  mix-blend-mode: luminosity;
+}
+
+.studio-manifesto-quote-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  z-index: 3;
+}
+
+.studio-manifesto-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 200;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--on-surface);
+  text-align: center;
+  margin: 0;
+}
+
+/* =========================================================
    MANIFESTO STRIP
 ========================================================= */
 .manifesto-strip {
@@ -970,6 +1102,29 @@
   .hero-cta-block:hover .hero-cta-line {
     width: 80px;
     height: 1px;
+  }
+
+  /* Studio manifesto mobile */
+  .studio-manifesto {
+    padding: 80px 24px;
+  }
+
+  .studio-manifesto-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .studio-manifesto-headline {
+    font-size: clamp(64px, 20vw, 100px);
+    margin-bottom: 32px;
+  }
+
+  .studio-manifesto-img-wrap {
+    height: 420px;
+  }
+
+  .studio-manifesto-quote {
+    font-size: clamp(18px, 5vw, 26px);
   }
 
   /* Works section mobile */
