@@ -102,12 +102,12 @@ export default function Home() {
           <h1 className="hero-display" aria-label="II Design">
             <span className="hero-display-line">
               <span className="hero-display-inner" ref={line1Ref}>
-                II&nbsp;DES
+                II
               </span>
             </span>
             <span className="hero-display-line">
               <span className="hero-display-inner outline-text" ref={line2Ref}>
-                IGN
+                DESIGN
               </span>
             </span>
           </h1>
