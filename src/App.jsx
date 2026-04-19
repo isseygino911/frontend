@@ -12,6 +12,7 @@ import Contact from './pages/Contact.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import Tools from './pages/Tools.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 
 /**
@@ -66,6 +67,7 @@ export default function App() {
             <Route path="/project/:key"  element={<ProjectDetail />} />
             <Route path="/philosophy"    element={<Philosophy />} />
             <Route path="/contact"       element={<Contact />} />
+            <Route path="/tools"         element={<Tools />} />
             <Route path="/login"         element={<Login />} />
             <Route path="/register"      element={<Register />} />
             <Route

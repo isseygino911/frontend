@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { label: 'Archive',    path: '/archive',    auth: false },
   { label: 'Philosophy', path: '/philosophy', auth: false },
   { label: 'Contact',    path: '/contact',    auth: false },
+  { label: 'Tools',      path: '/tools',      auth: false },
   { label: 'Dashboard',  path: '/dashboard',  auth: true  },
 ];
 
