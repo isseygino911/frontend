@@ -38,7 +38,7 @@ export default function Tools() {
         onLoad={handleLoad}
         onError={handleError}
         allow="fullscreen"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-top-navigation-by-user-activation"
       />
     </div>
   );
