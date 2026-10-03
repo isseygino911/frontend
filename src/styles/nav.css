@@ -102,30 +102,6 @@
   transform: translateX(-50%) scaleY(1);
 }
 
-#nav-social {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.nav-social-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-social-icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.4;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  fill: var(--on-surface);
-}
-
-.nav-social-icon:hover { opacity: 1; }
-
 .nav-user-section {
   margin-top: 16px;
   display: flex;

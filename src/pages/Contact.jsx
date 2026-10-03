@@ -27,8 +27,8 @@ export default function Contact() {
       await axios.post('/api/contact', form);
       setSuccess(true);
       setForm({ name: '', email: '', projectType: '', brief: '' });
-    } catch {
-      setError('Something went wrong. Please try again.');
+    } catch (err) {
+      setError(err?.response?.data?.message || 'Something went wrong. Please try again.');
     } finally {
       setSub(false);
     }
@@ -56,7 +56,7 @@ export default function Contact() {
       {/* ── Body ──────────────────────────────────────────── */}
       <div className="contact-body">
         {/* Form section */}
-        <div className="contact-form-section" data-animate="from-left">
+        <div className="contact-form-section" data-animate>
           <h2>New Enquiry</h2>
 
           {success && (
@@ -130,65 +130,6 @@ export default function Contact() {
               <span aria-hidden="true">→</span>
             </button>
           </form>
-        </div>
-
-        {/* Info section */}
-        <div className="contact-info-section" data-animate="from-right">
-          <h2>Studio</h2>
-
-          <div className="contact-details">
-            <div className="contact-detail">
-              <span className="contact-detail-label">Address</span>
-              <span className="contact-detail-value">
-                Schönhauser Allee 36
-                <br />
-                10435 Berlin, Germany
-              </span>
-            </div>
-            <div className="contact-detail">
-              <span className="contact-detail-label">Email</span>
-              <a
-                className="contact-detail-value"
-                href="mailto:studio@iidesign.com"
-              >
-                studio@iidesign.com
-              </a>
-            </div>
-            <div className="contact-detail">
-              <span className="contact-detail-label">New Business</span>
-              <a
-                className="contact-detail-value"
-                href="mailto:projects@iidesign.com"
-              >
-                projects@iidesign.com
-              </a>
-            </div>
-            <div className="contact-detail">
-              <span className="contact-detail-label">Press</span>
-              <a
-                className="contact-detail-value"
-                href="mailto:press@iidesign.com"
-              >
-                press@iidesign.com
-              </a>
-            </div>
-          </div>
-
-          <div className="studio-hours">
-            <h3>Studio Hours</h3>
-            <div className="hours-line">
-              <span>Monday — Thursday</span>
-              <span>09:00 — 18:00</span>
-            </div>
-            <div className="hours-line">
-              <span>Friday</span>
-              <span>09:00 — 16:00</span>
-            </div>
-            <div className="hours-line">
-              <span>Saturday — Sunday</span>
-              <span>By appointment</span>
-            </div>
-          </div>
         </div>
       </div>
 
