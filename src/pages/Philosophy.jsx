@@ -18,8 +18,8 @@ export default function Philosophy() {
         <div className="phil-hero-img-wrap" aria-hidden="true">
           <img
             className="phil-hero-img"
-            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1600&q=80"
-            alt="Minimalist brutalist concrete building exterior with dramatic shadows"
+            src="/projects/whale-cloud-global-headquarters/01.jpg"
+            alt="Whale Cloud Global Headquarters — diagonal lattice facade"
           />
           <div className="phil-hero-overlay" />
         </div>
@@ -49,8 +49,8 @@ export default function Philosophy() {
           <div className="phil-brutalism-ghost" aria-hidden="true">FORM</div>
           <img
             className="phil-brutalism-img"
-            src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=800&q=80"
-            alt="Abstract architectural lines and sharp angles"
+            src="/projects/ecovacs-phase-vi-office/01-sm.jpg"
+            alt="Ecovacs Robotics Phase VI Office — sweeping curved main hall"
           />
           <div className="phil-brutalism-caption">
             <span className="phil-caption-label">Perspective / 001</span>
@@ -103,8 +103,8 @@ export default function Philosophy() {
           <div className="phil-chromatic-img-wrap" data-animate>
             <img
               className="phil-chromatic-img"
-              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
-              alt="Interior with sharp sunlight shadows on a minimal wall"
+              src="/projects/simcere-rd-centre/06-sm.jpg"
+              alt="Simcere Pharmaceutical R&D Centre — roof garden and reflecting pool"
             />
             <div className="phil-chromatic-badge" aria-hidden="true">
               <span className="phil-chromatic-badge-num">03</span>
@@ -131,8 +131,8 @@ export default function Philosophy() {
         <div className="phil-void-img-wrap" data-animate="from-left">
           <img
             className="phil-void-img"
-            src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80"
-            alt="High-end minimal studio space with clean lines"
+            src="/projects/hengli-group-headquarters/01-sm.jpg"
+            alt="Hengli Group Headquarters — main hall"
           />
         </div>
 

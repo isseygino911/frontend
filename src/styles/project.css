@@ -163,6 +163,14 @@
   overflow: hidden;
   position: relative;
   background: var(--surface-1);
+  border: none;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.gallery-item:focus-visible {
+  outline: 1px solid var(--primary);
+  outline-offset: -1px;
 }
 
 .gallery-item:nth-child(1) {

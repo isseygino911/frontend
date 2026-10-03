@@ -46,6 +46,11 @@ export default function Archive() {
 
   useAnimateOnScroll();
 
+  const countByType = projects.reduce((acc, p) => {
+    acc[p.type] = (acc[p.type] || 0) + 1;
+    return acc;
+  }, {});
+
   useEffect(() => {
     getProjects()
       .then(setProjects)
@@ -64,8 +69,7 @@ export default function Archive() {
             <span className="archive-headline-count">{projects.length}</span>
           </h1>
           <p className="archive-subhead">
-            A chronological collection of architectural projects spanning residential, 
-            commercial, and cultural spaces.
+            Completed interiors for hotels and workplaces, organised by sector.
           </p>
         </header>
 
@@ -85,7 +89,7 @@ export default function Archive() {
                   style={{ transitionDelay: `${100 + (i % 8) * 80}ms` }}
                   role="listitem"
                   tabIndex={0}
-                  aria-label={`${p.title}, ${p.year}`}
+                  aria-label={`${p.title}, ${p.location}`}
                   onClick={() => navigate(`/project/${p.key}`)}
                   onKeyDown={(e) => e.key === 'Enter' && navigate(`/project/${p.key}`)}
                 >
@@ -97,7 +101,7 @@ export default function Archive() {
                   {/* Image container with aspect ratio based on size */}
                   <div className="archive-card__media">
                     <img 
-                      src={p.images?.hero} 
+                      src={p.images?.thumb}
                       alt="" 
                       loading={i < 4 ? "eager" : "lazy"}
                       className="archive-card__image"
@@ -109,7 +113,6 @@ export default function Archive() {
                   {/* Content overlay - positioned based on card size */}
                   <div className="archive-card__content">
                     <div className="archive-card__meta">
-                      <span className="archive-card__year">{p.year}</span>
                       <span className="archive-card__type">{p.type}</span>
                     </div>
                     <h2 className="archive-card__title">{p.title}</h2>
@@ -132,14 +135,12 @@ export default function Archive() {
             <span className="archive-stat__value">{projects.length}</span>
             <span className="archive-stat__label">Projects</span>
           </div>
-          <div className="archive-stat">
-            <span className="archive-stat__value">12</span>
-            <span className="archive-stat__label">Countries</span>
-          </div>
-          <div className="archive-stat">
-            <span className="archive-stat__value">24</span>
-            <span className="archive-stat__label">Awards</span>
-          </div>
+          {Object.entries(countByType).map(([type, count]) => (
+            <div key={type} className="archive-stat">
+              <span className="archive-stat__value">{count}</span>
+              <span className="archive-stat__label">{type}</span>
+            </div>
+          ))}
         </div>
         <p className="archive-footer__text">
           © 2024 II Design Studio. All rights reserved.

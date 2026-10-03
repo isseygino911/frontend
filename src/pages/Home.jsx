@@ -71,10 +71,14 @@ export default function Home() {
   }, []);
 
   const [featuredProjects, setFeaturedProjects] = useState([]);
+  const [projectCount, setProjectCount]         = useState(0);
 
   useEffect(() => {
     getProjects()
-      .then((data) => setFeaturedProjects(data.slice(0, 4)))
+      .then((data) => {
+        setFeaturedProjects(data.slice(0, 4));
+        setProjectCount(data.length);
+      })
       .catch((err) => console.error('[home] Failed to load projects', err));
   }, []);
 
@@ -87,13 +91,13 @@ export default function Home() {
         <div className="hero-planes" aria-hidden="true">
           <div className="hero-plane hero-plane-1" ref={depth1Ref}>
             <img
-              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1200&q=80"
+              src="/projects/west-lake-state-guesthouse/01-sm.jpg"
               alt=""
             />
           </div>
           <div className="hero-plane hero-plane-2" ref={depth2Ref}>
             <img
-              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80"
+              src="/projects/whale-cloud-global-headquarters/01-sm.jpg"
               alt=""
             />
           </div>
@@ -189,7 +193,7 @@ export default function Home() {
               <div className="work-card-content">
                 <div className="work-card-meta">
                   <span className="work-index">01</span>
-                  <span className="work-year">{featuredProjects[0].year}</span>
+                  <span className="work-year">{featuredProjects[0].type}</span>
                 </div>
                 <h3 className="work-card-title">{featuredProjects[0].title}</h3>
                 <p className="work-card-location">{featuredProjects[0].location}</p>
@@ -220,7 +224,7 @@ export default function Home() {
               >
                 <div className="work-card-image-wrap">
                   <img
-                    src={p.images?.hero}
+                    src={p.images?.thumb}
                     alt={p.title}
                     loading="lazy"
                   />
@@ -257,7 +261,7 @@ export default function Home() {
               <div className="work-card-wide-inner">
                 <div className="work-card-image-wrap work-card-image-wrap-wide">
                   <img
-                    src={featuredProjects[3].images?.hero}
+                    src={featuredProjects[3].images?.thumb}
                     alt={featuredProjects[3].title}
                     loading="lazy"
                   />
@@ -291,7 +295,7 @@ export default function Home() {
         <div className="works-archive-link" data-animate="from-right">
           <button className="works-archive-btn" onClick={() => navigate('/archive')}>
             <span className="archive-btn-text">View All Projects</span>
-            <span className="archive-btn-count">{featuredProjects.length > 4 ? featuredProjects.length : '8'}</span>
+            <span className="archive-btn-count">{projectCount}</span>
             <span className="archive-btn-line" aria-hidden="true" />
           </button>
         </div>
@@ -335,7 +339,7 @@ export default function Home() {
             <div className="studio-manifesto-img-wrap">
               <div className="studio-manifesto-border" aria-hidden="true" />
               <img
-                src="https://images.unsplash.com/photo-1493219686142-5a8641badc78?w=800&q=80"
+                src="/projects/spd-hotel/06-sm.jpg"
                 alt=""
                 className="studio-manifesto-img"
               />

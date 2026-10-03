@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import { getProject } from '../services/projectsAPI.js';
+import ImageModal from '../components/ImageModal.jsx';
 import '../styles/project.css';
 
 export default function ProjectDetail() {
@@ -9,6 +10,7 @@ export default function ProjectDetail() {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState(false);
+  const [viewing, setViewing] = useState(null);
 
   useAnimateOnScroll();
 
@@ -16,6 +18,7 @@ export default function ProjectDetail() {
     setLoading(true);
     setError(false);
     setProject(null);
+    setViewing(null);
 
     getProject(key)
       .then(setProject)
@@ -67,8 +70,6 @@ export default function ProjectDetail() {
             <span>{project.code}</span>
             <span className="sep-dot">·</span>
             <span>{project.type}</span>
-            <span className="sep-dot">·</span>
-            <span>{project.year}</span>
           </div>
           <h1 className="project-hero-title">{project.title}</h1>
 
@@ -78,16 +79,8 @@ export default function ProjectDetail() {
               <span className="meta-value">{project.location}</span>
             </div>
             <div className="meta-item">
-              <span className="meta-label">Year</span>
-              <span className="meta-value">{project.year}</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Area</span>
-              <span className="meta-value">{project.area}</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Coordinates</span>
-              <span className="meta-value">{project.coords}</span>
+              <span className="meta-label">Sector</span>
+              <span className="meta-value">{project.type}</span>
             </div>
           </div>
         </div>
@@ -102,24 +95,40 @@ export default function ProjectDetail() {
         {/* Gallery */}
         {gallery.length > 0 && (
           <div className="project-gallery" data-animate>
-            {gallery.map((src, i) => (
-              <div key={i} className="gallery-item">
+            {gallery.map(({ src, label }, i) => (
+              <button
+                key={src}
+                type="button"
+                className="gallery-item"
+                onClick={() => setViewing(i)}
+                aria-label={`View ${label} full size`}
+              >
                 <img
                   className="gallery-item-img"
                   src={src}
-                  alt={`${project.title} — view ${i + 1}`}
+                  alt={`${project.title} — ${label}`}
                   loading="lazy"
                 />
-              </div>
+              </button>
             ))}
           </div>
         )}
+
+        <ImageModal
+          images={gallery.map(({ full, label }) => ({
+            src: full,
+            alt: `${project.title} — ${label}`,
+            caption: label,
+          }))}
+          index={viewing}
+          onChange={setViewing}
+          onClose={() => setViewing(null)}
+        />
 
         {/* Description */}
         <div className="project-description" data-animate>
           {project.desc1 && <p>{project.desc1}</p>}
           {project.desc2 && <p>{project.desc2}</p>}
-          {project.desc3 && <p>{project.desc3}</p>}
         </div>
 
         <Link to="/" className="back-nav">← Back to Atelier</Link>
