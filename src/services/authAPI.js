@@ -35,7 +35,7 @@ client.interceptors.response.use(
 
 /**
  * Register a new account.
- * @param {{ email: string, password: string }} data
+ * @param {{ name: string, email: string, password: string }} data
  */
 export async function registerUser(data) {
   const res = await client.post('/auth/register', data);

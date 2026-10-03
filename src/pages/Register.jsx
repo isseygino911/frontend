@@ -5,9 +5,10 @@ import '../styles/auth.css';
 
 /**
  * Register page — same dark brutalist aesthetic as Login.
- * Validates password length (>=8) and password confirmation match.
+ * Validates name, password length (>=8), and password confirmation match.
  */
 export default function Register() {
+  const [name, setName]         = useState('');
   const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm]   = useState('');
@@ -24,6 +25,16 @@ export default function Register() {
     e.preventDefault();
     setError('');
 
+    if (!name.trim()) {
+      setError('Please enter your name.');
+      return;
+    }
+
+    if (name.trim().length > 100) {
+      setError('Name must be 100 characters or fewer.');
+      return;
+    }
+
     if (password.length < 8) {
       setError('Password must be at least 8 characters.');
       return;
@@ -37,7 +48,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      await register(email, password);
+      await register(name.trim(), email, password);
       navigate('/');
     } catch (err) {
       const msg = err?.response?.data?.message || 'Registration failed. Please try again.';
@@ -70,6 +81,24 @@ export default function Register() {
         )}
 
         <form onSubmit={handleSubmit} aria-label="Create account form" noValidate>
+          <div className="auth-form-group">
+            <label className="auth-label" htmlFor="reg-name">
+              Name
+            </label>
+            <input
+              className="auth-input"
+              type="text"
+              id="reg-name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+              autoComplete="name"
+              maxLength={100}
+              required
+            />
+          </div>
+
           <div className="auth-form-group">
             <label className="auth-label" htmlFor="reg-email">
               Email
