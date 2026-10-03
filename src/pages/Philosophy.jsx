@@ -148,10 +148,10 @@ export default function Philosophy() {
             contemplation, the "voids" where human consciousness can expand without the
             friction of unnecessary detail.
           </p>
-          <div className="phil-void-links">
+          {/* <div className="phil-void-links">
             <a href="#" className="phil-void-link primary" onClick={(e) => e.preventDefault()}>Manifesto PDF</a>
             <a href="#" className="phil-void-link" onClick={(e) => e.preventDefault()}>Process Reel</a>
-          </div>
+          </div> */}
         </div>
       </section>
 
