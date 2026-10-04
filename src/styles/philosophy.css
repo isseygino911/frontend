@@ -1,5 +1,5 @@
 /* =========================================================
-   PHILOSOPHY PAGE — Stitch "Avant-Garde" rebuild
+   PHILOSOPHY PAGE — how the studio works
 ========================================================= */
 
 /* ── Shared ─────────────────────────────────────────────── */
@@ -98,8 +98,8 @@
   margin-top: -4px;
 }
 
-/* ── Organic Brutalism (asymmetric) ─────────────────────── */
-.phil-brutalism {
+/* ── Plan First (asymmetric) ──────────────────────────────── */
+.phil-plan {
   display: flex;
   flex-direction: row;
   gap: 80px;
@@ -107,12 +107,12 @@
   padding: 128px 96px;
 }
 
-.phil-brutalism-left {
+.phil-plan-left {
   flex: 1;
   position: relative;
 }
 
-.phil-brutalism-ghost {
+.phil-plan-ghost {
   position: absolute;
   top: -64px;
   left: -32px;
@@ -127,7 +127,7 @@
   z-index: 0;
 }
 
-.phil-brutalism-img {
+.phil-plan-img {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -136,7 +136,7 @@
   filter: grayscale(1) brightness(0.75);
 }
 
-.phil-brutalism-caption {
+.phil-plan-caption {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -166,12 +166,12 @@
   text-align: right;
 }
 
-.phil-brutalism-right {
+.phil-plan-right {
   flex: 1;
   padding-top: 256px;
 }
 
-.phil-brutalism-title {
+.phil-plan-title {
   font-family: var(--font-serif);
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 300;
@@ -181,12 +181,12 @@
   margin-bottom: 48px;
 }
 
-.phil-brutalism-title em {
+.phil-plan-title em {
   font-style: italic;
   color: var(--primary);
 }
 
-.phil-brutalism-body {
+.phil-plan-body {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -197,7 +197,7 @@
   color: var(--secondary);
 }
 
-.phil-brutalism-indent {
+.phil-plan-indent {
   padding-left: 48px;
   border-left: 1px solid rgba(227, 193, 150, 0.3);
 }
@@ -221,15 +221,15 @@
   background: var(--primary-dim);
 }
 
-/* ── Chromatic Silence ───────────────────────────────────── */
-.phil-chromatic {
+/* ── Lasting Materials ───────────────────────────────────── */
+.phil-material {
   position: relative;
   padding: 192px 96px;
   background: var(--surface-1);
   overflow: hidden;
 }
 
-.phil-chromatic-mask {
+.phil-material-mask {
   position: absolute;
   top: 0;
   right: 0;
@@ -241,7 +241,7 @@
   pointer-events: none;
 }
 
-.phil-chromatic-inner {
+.phil-material-inner {
   position: relative;
   z-index: 2;
   display: grid;
@@ -250,7 +250,7 @@
   align-items: center;
 }
 
-.phil-chromatic-title {
+.phil-material-title {
   font-family: var(--font-serif);
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 300;
@@ -260,11 +260,11 @@
   margin-bottom: 32px;
 }
 
-.phil-chromatic-title em {
+.phil-material-title em {
   font-style: italic;
 }
 
-.phil-chromatic-body {
+.phil-material-body {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 300;
@@ -278,24 +278,35 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   height: 80px;
+  list-style: none;
 }
 
-.phil-palette > div {
-  height: 100%;
+.phil-palette > li {
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
 }
 
-.phil-chromatic-img-wrap {
+.phil-palette span {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.phil-material-img-wrap {
   position: relative;
 }
 
-.phil-chromatic-img {
+.phil-material-img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   filter: grayscale(1) contrast(1.25);
 }
 
-.phil-chromatic-badge {
+.phil-material-badge {
   position: absolute;
   bottom: 16px;
   left: 16px;
@@ -303,7 +314,7 @@
   padding: 20px 24px;
 }
 
-.phil-chromatic-badge-num {
+.phil-material-badge-num {
   display: block;
   font-family: var(--font-serif);
   font-size: 56px;
@@ -312,7 +323,7 @@
   line-height: 1;
 }
 
-.phil-chromatic-badge-label {
+.phil-material-badge-label {
   display: block;
   font-family: var(--font-sans);
   font-size: 8px;
@@ -381,8 +392,8 @@
   margin: 80px auto 0;
 }
 
-/* ── The Human Void ─────────────────────────────────────── */
-.phil-void {
+/* ── Light ──────────────────────────────────────────────── */
+.phil-light {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -391,23 +402,23 @@
   background: var(--bg);
 }
 
-.phil-void-img-wrap {
+.phil-light-img-wrap {
   flex: 0 0 auto;
   width: 33%;
 }
 
-.phil-void-img {
+.phil-light-img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   filter: grayscale(1) brightness(0.5);
 }
 
-.phil-void-text {
+.phil-light-text {
   flex: 1;
 }
 
-.phil-void-title {
+.phil-light-title {
   font-family: var(--font-serif);
   font-size: clamp(52px, 8vw, 120px);
   font-weight: 300;
@@ -417,12 +428,12 @@
   margin-bottom: 32px;
 }
 
-.phil-void-title em {
+.phil-light-title em {
   font-style: italic;
   color: var(--primary);
 }
 
-.phil-void-body {
+.phil-light-body {
   font-family: var(--font-sans);
   font-size: 18px;
   font-weight: 200;
@@ -430,33 +441,6 @@
   color: var(--secondary);
   max-width: 560px;
   margin-bottom: 48px;
-}
-
-.phil-void-links {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-
-.phil-void-link {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--on-surface);
-  border-bottom: 1px solid var(--outline-var);
-  padding-bottom: 4px;
-  transition: color 0.3s, border-color 0.3s;
-}
-
-.phil-void-link.primary {
-  border-color: var(--primary);
-}
-
-.phil-void-link:hover {
-  color: var(--primary);
-  border-color: var(--primary);
 }
 
 /* ── Footer ─────────────────────────────────────────────── */
@@ -510,35 +494,35 @@
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .phil-brutalism-right { padding-top: 96px; }
-  .phil-void { padding: 96px 48px; }
+  .phil-plan-right { padding-top: 96px; }
+  .phil-light { padding: 96px 48px; }
 }
 
 @media (max-width: 900px) {
   .phil-hero        { padding: 100px 24px 60px; }
   .phil-hero-rule   { display: none; }
 
-  .phil-brutalism {
+  .phil-plan {
     flex-direction: column;
     padding: 80px 24px;
     gap: 48px;
   }
-  .phil-brutalism-right { padding-top: 0; }
-  .phil-brutalism-ghost { display: none; }
+  .phil-plan-right { padding-top: 0; }
+  .phil-plan-ghost { display: none; }
 
-  .phil-chromatic         { padding: 96px 24px; }
-  .phil-chromatic-inner   { grid-template-columns: 1fr; gap: 48px; }
-  .phil-chromatic-mask    { display: none; }
+  .phil-material         { padding: 96px 24px; }
+  .phil-material-inner   { grid-template-columns: 1fr; gap: 48px; }
+  .phil-material-mask    { display: none; }
 
   .phil-precision-content { padding: 0 24px; }
 
-  .phil-void {
+  .phil-light {
     flex-direction: column;
     padding: 80px 24px;
     gap: 48px;
   }
-  .phil-void-img-wrap { width: 100%; }
-  .phil-void-img      { aspect-ratio: 16 / 9; }
+  .phil-light-img-wrap { width: 100%; }
+  .phil-light-img      { aspect-ratio: 16 / 9; }
 
   .phil-footer {
     flex-direction: column;
@@ -550,14 +534,13 @@
 
 @media (max-width: 480px) {
   .phil-hero-headline { font-size: clamp(48px, 14vw, 80px); }
-  .phil-void-title    { font-size: clamp(44px, 12vw, 80px); }
+  .phil-light-title    { font-size: clamp(44px, 12vw, 80px); }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .phil-cta,
-  .phil-void-link,
-  .phil-chromatic-img-wrap {
+  .phil-material-img-wrap {
     transition-duration: 0.01ms;
   }
 }

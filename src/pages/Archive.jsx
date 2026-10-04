@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import { getProjects } from '../services/projectsAPI.js';
+import { LAB_STUDIO } from '../data/labContent.js';
 import '../styles/archive.css';
 
 /**
@@ -143,7 +144,7 @@ export default function Archive() {
           ))}
         </div>
         <p className="archive-footer__text">
-          © 2024 II Design Studio. All rights reserved.
+          {LAB_STUDIO.copyright}
         </p>
       </div>
     </div>

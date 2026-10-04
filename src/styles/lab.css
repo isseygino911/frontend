@@ -447,7 +447,7 @@ html:has(#page-lab) body { overflow-x: clip; }
 .lab-slider-cta-main::before { background: #2b2c2c; }
 .lab-slider-footer.is-framed .lab-slider-cta-main { background: transparent; border-color: rgba(244, 243, 235, 0.7); }
 
-/* ── 4. Delivery / Atelier Standard ──────────────────────── */
+/* ── 4. Delivery / How We Work ───────────────────────────── */
 .lab-delivery { padding: 130px var(--lab-gutter) 0; }
 .lab-delivery-top {
   display: grid;

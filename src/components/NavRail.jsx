@@ -4,7 +4,7 @@ import BrandLogo from './BrandLogo.jsx';
 import '../styles/nav.css';
 
 const NAV_ITEMS = [
-  { label: 'Atelier',    path: '/',           auth: false },
+  { label: 'Home',       path: '/',           auth: false },
   { label: 'Archive',    path: '/archive',    auth: false },
   { label: 'Philosophy', path: '/philosophy', auth: false },
   { label: 'Contact',    path: '/contact',    auth: false },

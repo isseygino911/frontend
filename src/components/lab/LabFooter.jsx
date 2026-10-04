@@ -31,15 +31,13 @@ export default function LabFooter() {
         </div>
         <ul className="lab-footer-links lab-footer-links-right">
           <li><a href={`mailto:${LAB_STUDIO.email}`}>{LAB_STUDIO.email}</a></li>
-          <li><a href={LAB_STUDIO.phoneHref}>{LAB_STUDIO.phone}</a></li>
-          {LAB_STUDIO.address.map((line) => <li key={line}>{line}</li>)}
         </ul>
       </div>
 
       <div className="lab-footer-bottom">
-        <p><span className="lab-muted">Phone</span> <a href={LAB_STUDIO.phoneHref}>{LAB_STUDIO.phone}</a></p>
+        <p><span className="lab-muted">Email</span> <a href={`mailto:${LAB_STUDIO.email}`}>{LAB_STUDIO.email}</a></p>
         <button type="button" className="lab-footer-top" onClick={toTop}>Back to top</button>
-        <p className="lab-muted">{LAB_STUDIO.since}</p>
+        <p className="lab-muted">{LAB_STUDIO.tagline}</p>
       </div>
 
       <LineArt variant="building" className="lab-footer-art" />

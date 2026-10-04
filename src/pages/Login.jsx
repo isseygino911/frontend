@@ -5,7 +5,7 @@ import BrandLogo from '../components/BrandLogo.jsx';
 import '../styles/auth.css';
 
 /**
- * Login page — dark brutalist aesthetic matching the design system.
+ * Login page — dark card matching the design system.
  * Bottom-border ghost input style, ochre primary button.
  */
 export default function Login() {
@@ -70,7 +70,7 @@ export default function Login() {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="studio@domain.com"
+              placeholder="you@company.com"
               autoComplete="email"
               required
             />

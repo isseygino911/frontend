@@ -77,7 +77,15 @@
   font-size: 32px;
   font-weight: 300;
   color: var(--on-surface);
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.contact-intro {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--secondary);
+  max-width: 440px;
+  margin-bottom: 40px;
 }
 
 .form-group {

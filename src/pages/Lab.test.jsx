@@ -58,7 +58,7 @@ describe('Lab page content', () => {
     [
       'Composition',
       'Selected projects',
-      'The Atelier Standard',
+      'How we work',
       'Manifesto',
       'Portfolio in numbers',
       'Project index',

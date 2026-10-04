@@ -1,5 +1,5 @@
 /**
- * Copy for the /lab landing page.
+ * Copy for the landing page (/), reused by the other pages so the studio speaks with one voice.
  * Studio copy for a mostly-commercial (hotels, workplaces) interior design practice that also takes on residences.
  * Project fields (titles, photos, locations, counts) are read from PROJECTS at runtime.
  */
@@ -137,13 +137,9 @@ export const LAB_INDEX = {
 };
 
 export const LAB_STUDIO = {
-  email: 'studio@iidesign.com',
-  phone: '+49 30 123 456',
-  phoneHref: 'tel:+4930123456',
-  location: 'Berlin, Germany',
-  address: ['Schönhauser Allee 36', '10435 Berlin, Germany'],
-  copyright: '© 2024 II Design Studio. All rights reserved.',
-  since: 'Commercial & Residential Interiors — Since 2019',
+  email: 'info@iidesign.cloud',
+  copyright: `© ${new Date().getFullYear()} II Design. All rights reserved.`,
+  tagline: 'Interior Design — Residential / Commercial',
 };
 
 export const LAB_FOOTER = {

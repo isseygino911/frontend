@@ -4,6 +4,7 @@ import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import { getProject } from '../services/projectsAPI.js';
 import ImageModal from '../components/ImageModal.jsx';
 import BrandLogo from '../components/BrandLogo.jsx';
+import { LAB_QUOTE } from '../data/labContent.js';
 import '../styles/project.css';
 
 export default function ProjectDetail() {
@@ -40,7 +41,7 @@ export default function ProjectDetail() {
       <div className="project-not-found">
         <h2>Project Not Found</h2>
         <p>The project you are looking for does not exist in our archive.</p>
-        <Link to="/" className="back-nav">← Back to Atelier</Link>
+        <Link to="/archive" className="back-nav">← Back to Archive</Link>
       </div>
     );
   }
@@ -85,7 +86,7 @@ export default function ProjectDetail() {
       {/* ── Body ──────────────────────────────────────────── */}
       <div className="project-body">
         <blockquote className="project-quote" data-animate="from-left">
-          "Space is only space when it is interrupted by the geometry of intent."
+          {LAB_QUOTE.quote}
         </blockquote>
 
         {/* Gallery */}
@@ -127,7 +128,7 @@ export default function ProjectDetail() {
           {project.desc2 && <p>{project.desc2}</p>}
         </div>
 
-        <Link to="/" className="back-nav">← Back to Atelier</Link>
+        <Link to="/archive" className="back-nav">← Back to Archive</Link>
       </div>
     </div>
   );

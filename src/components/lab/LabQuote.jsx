@@ -19,7 +19,6 @@ export default function LabQuote() {
         <p className="lab-body lab-muted">{LAB_QUOTE.body}</p>
         <dl className="lab-quote-details">
           <div><dt>Email</dt><dd><a href={`mailto:${LAB_STUDIO.email}`}>{LAB_STUDIO.email}</a></dd></div>
-          <div><dt>Location</dt><dd>{LAB_STUDIO.location}</dd></div>
         </dl>
         <Link to="/contact" className="lab-btn lab-btn-light">Start a Project</Link>
       </div>

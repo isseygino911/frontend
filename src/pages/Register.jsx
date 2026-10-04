@@ -5,7 +5,7 @@ import BrandLogo from '../components/BrandLogo.jsx';
 import '../styles/auth.css';
 
 /**
- * Register page — same dark brutalist aesthetic as Login.
+ * Register page — same dark card as Login.
  * Validates name, password length (>=8), and password confirmation match.
  */
 export default function Register() {
@@ -111,7 +111,7 @@ export default function Register() {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="studio@domain.com"
+              placeholder="you@company.com"
               autoComplete="email"
               required
             />

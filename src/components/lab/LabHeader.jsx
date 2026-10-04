@@ -43,7 +43,6 @@ export default function LabHeader() {
         </nav>
         <div className="lab-menu-meta">
           <a href={`mailto:${LAB_STUDIO.email}`}>{LAB_STUDIO.email}</a>
-          <a href={LAB_STUDIO.phoneHref}>{LAB_STUDIO.phone}</a>
         </div>
       </div>
     </>

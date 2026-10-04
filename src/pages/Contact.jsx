@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import axios from 'axios';
+import { LAB_FOOTER, LAB_QUOTE, LAB_STUDIO } from '../data/labContent.js';
 import '../styles/contact.css';
 
 /**
@@ -43,12 +44,12 @@ export default function Contact() {
         </div>
         <div className="contact-hero-content">
           <p className="section-label" data-animate="from-left">
-            Commission
+            {LAB_FOOTER.caption}
           </p>
           <h1 className="contact-headline">
-            Begin the
+            {LAB_FOOTER.title[0]}
             <br />
-            <span className="stroke">Dialogue.</span>
+            <span className="stroke">{LAB_FOOTER.title[1]}</span>
           </h1>
         </div>
       </div>
@@ -58,6 +59,7 @@ export default function Contact() {
         {/* Form section */}
         <div className="contact-form-section" data-animate="from-left">
           <h2>New Enquiry</h2>
+          <p className="contact-intro">{LAB_QUOTE.body}</p>
 
           {success && (
             <div className="form-success">
@@ -89,7 +91,7 @@ export default function Contact() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="studio@domain.com"
+                placeholder="you@company.com"
                 autoComplete="email"
                 required
               />
@@ -103,7 +105,7 @@ export default function Contact() {
                 name="projectType"
                 value={form.projectType}
                 onChange={handleChange}
-                placeholder="Residential / Cultural / Hospitality…"
+                placeholder="Hotel / Office / Residence…"
               />
             </div>
             <div className="form-group">
@@ -114,7 +116,7 @@ export default function Contact() {
                 name="brief"
                 value={form.brief}
                 onChange={handleChange}
-                placeholder="Describe your spatial ambition…"
+                placeholder="The site, the brief and the timeline…"
                 rows={5}
               />
             </div>
@@ -135,11 +137,11 @@ export default function Contact() {
 
       <div className="footer-bottom">
         <span className="footer-bottom-text">
-          © 2024 II Design Studio. All rights reserved.
+          {LAB_STUDIO.copyright}
         </span>
-        <span className="footer-bottom-text">
-          Berlin · Tokyo · Paris · Oslo
-        </span>
+        <a className="footer-bottom-text" href={`mailto:${LAB_STUDIO.email}`}>
+          {LAB_STUDIO.email}
+        </a>
       </div>
     </div>
   );

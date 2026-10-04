@@ -6,7 +6,7 @@ const pad = (n) => String(n).padStart(2, '0');
 /** Lead text left, caption + heading right, then numbered rows with a photo that warms to colour. */
 export default function LabDelivery() {
   return (
-    <section className="lab-delivery" aria-label="The Atelier Standard">
+    <section className="lab-delivery" aria-label="How we work">
       <div className="lab-delivery-top">
         <p className="lab-body lab-muted lab-delivery-lead" data-lab-text="body">{LAB_DELIVERY.lead}</p>
         <div className="lab-delivery-heading">
