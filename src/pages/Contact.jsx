@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
-import { sendEnquiry } from '../services/contactAPI.js';
+import axios from 'axios';
 import '../styles/contact.css';
 
 /**
@@ -24,7 +24,7 @@ export default function Contact() {
     setSub(true);
     setError('');
     try {
-      await sendEnquiry(form);
+      await axios.post('/api/contact', form);
       setSuccess(true);
       setForm({ name: '', email: '', projectType: '', brief: '' });
     } catch (err) {
@@ -56,7 +56,7 @@ export default function Contact() {
       {/* ── Body ──────────────────────────────────────────── */}
       <div className="contact-body">
         {/* Form section */}
-        <div className="contact-form-section" data-animate>
+        <div className="contact-form-section" data-animate="from-left">
           <h2>New Enquiry</h2>
 
           {success && (

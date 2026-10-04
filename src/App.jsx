@@ -13,6 +13,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Tools from './pages/Tools.jsx';
+import Lab from './pages/Lab.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 
 /**
@@ -46,9 +47,55 @@ function ScrollToTop() {
   return null;
 }
 
+/** Routes that render their own header and full-bleed layout, without the site nav. */
+const BARE_ROUTES = ['/lab'];
+
+/**
+ * Global nav, progress bar and the routed content.
+ * Bare routes drop the nav chrome and the rail margin on #app.
+ */
+function AppShell() {
+  const { pathname } = useLocation();
+  const bare = BARE_ROUTES.includes(pathname);
+
+  return (
+    <>
+      {!bare && (
+        <>
+          <ScrollProgress />
+          <NavRail />
+          <MobileNav />
+        </>
+      )}
+      <ScrollToTop />
+      <div id="app" className={bare ? 'app-bare' : undefined}>
+        <Routes>
+          <Route path="/"              element={<Home />} />
+          <Route path="/lab"           element={<Lab />} />
+          <Route path="/archive"       element={<Archive />} />
+          <Route path="/project/:key"  element={<ProjectDetail />} />
+          <Route path="/philosophy"    element={<Philosophy />} />
+          <Route path="/contact"       element={<Contact />} />
+          <Route path="/tools"         element={<Tools />} />
+          <Route path="/login"         element={<Login />} />
+          <Route path="/register"      element={<Register />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </div>
+    </>
+  );
+}
+
 /**
  * Root application component.
- * NavRail and MobileNav are rendered outside the route-specific content
+ * AppShell keeps NavRail and MobileNav outside the route-specific content
  * so they persist across route transitions.
  */
 export default function App() {
@@ -56,30 +103,7 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <PageLoader />
-        <ScrollProgress />
-        <NavRail />
-        <MobileNav />
-        <ScrollToTop />
-        <div id="app">
-          <Routes>
-            <Route path="/"              element={<Home />} />
-            <Route path="/archive"       element={<Archive />} />
-            <Route path="/project/:key"  element={<ProjectDetail />} />
-            <Route path="/philosophy"    element={<Philosophy />} />
-            <Route path="/contact"       element={<Contact />} />
-            <Route path="/tools"         element={<Tools />} />
-            <Route path="/login"         element={<Login />} />
-            <Route path="/register"      element={<Register />} />
-            <Route
-              path="/dashboard"
-              element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </div>
+        <AppShell />
       </BrowserRouter>
     </AuthProvider>
   );
