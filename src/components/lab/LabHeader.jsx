@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LAB_NAV, LAB_STUDIO } from '../../data/labContent.js';
+import BrandLogo from '../BrandLogo.jsx';
 
-/** Fixed header: menu pill, centred wordmark, outlined call to action, and the full-screen menu. */
+/** Fixed header: menu pill, centred logo, outlined call to action, and the full-screen menu. */
 export default function LabHeader() {
   const [open, setOpen] = useState(false);
 
@@ -26,7 +27,7 @@ export default function LabHeader() {
           <span>{open ? 'Close' : 'Menu'}</span>
           <span className="lab-menu-dots" aria-hidden="true" />
         </button>
-        <Link to="/" className="lab-wordmark">II Design</Link>
+        <Link to="/" className="lab-wordmark" aria-label="II Design — Home"><BrandLogo /></Link>
         <Link to="/contact" className="lab-btn lab-btn-outline lab-header-cta">Start a Project</Link>
       </header>
 

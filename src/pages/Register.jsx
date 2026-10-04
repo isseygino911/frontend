@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import BrandLogo from '../components/BrandLogo.jsx';
 import '../styles/auth.css';
 
 /**
@@ -64,7 +65,7 @@ export default function Register() {
 
       <div className="auth-card">
         <Link to="/" className="auth-wordmark" aria-label="II Design — Home">
-          II DESIGN
+          <BrandLogo />
         </Link>
 
         <h1 className="auth-heading">Create Account.</h1>

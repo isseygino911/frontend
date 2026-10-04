@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import BrandLogo from './BrandLogo.jsx';
 
 /**
  * Wraps a route and redirects unauthenticated users to /login.
@@ -11,20 +12,8 @@ export default function PrivateRoute({ children }) {
 
   if (loading) {
     return (
-      <div
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: 'var(--font-serif)',
-          fontSize: '24px',
-          fontWeight: 300,
-          letterSpacing: '0.3em',
-          color: 'var(--primary)',
-        }}
-      >
-        II DESIGN
+      <div className="brand-splash">
+        <BrandLogo variant="stacked" />
       </div>
     );
   }

@@ -34,23 +34,13 @@
 }
 
 #nav-logo {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  font-family: var(--font-serif);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  color: var(--primary);
-  cursor: pointer;
+  font-size: 20px;
   margin-bottom: auto;
   padding: 0 8px;
-  user-select: none;
-  transition: color 0.3s;
-  text-decoration: none;
+  transition: opacity 0.3s;
 }
 
-#nav-logo:hover { color: var(--on-surface); }
+#nav-logo:hover { opacity: 0.75; }
 
 #nav-items {
   display: flex;
@@ -185,13 +175,8 @@
 }
 
 #mobile-logo {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-size: 12px;
   color: var(--primary);
-  cursor: pointer;
-  text-decoration: none;
 }
 
 #hamburger {

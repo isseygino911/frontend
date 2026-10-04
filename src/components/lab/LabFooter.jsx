@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { LAB_FOOTER, LAB_NAV, LAB_STUDIO } from '../../data/labContent.js';
 import { Caption, SplitHeading } from './LabText.jsx';
 import LineArt from './LineArt.jsx';
+import BrandLogo from '../BrandLogo.jsx';
 
 /** Centred commission CTA over a striped gradient, link rows, and a wide line drawing. */
 export default function LabFooter() {
@@ -25,7 +26,7 @@ export default function LabFooter() {
           </ul>
         </nav>
         <div className="lab-footer-brand">
-          <span className="lab-wordmark">II Design</span>
+          <BrandLogo variant="stacked" className="lab-wordmark" />
           <p>{LAB_STUDIO.copyright}</p>
         </div>
         <ul className="lab-footer-links lab-footer-links-right">

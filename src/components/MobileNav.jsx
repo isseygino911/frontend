@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import BrandLogo from './BrandLogo.jsx';
 import '../styles/nav.css';
 
 const NAV_ITEMS = [
@@ -43,7 +44,7 @@ export default function MobileNav() {
     <>
       <div id="mobile-bar" role="banner">
         <Link id="mobile-logo" to="/" aria-label="II Design — Home">
-          II DESIGN
+          <BrandLogo />
         </Link>
         <button
           id="hamburger"

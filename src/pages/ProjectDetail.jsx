@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import { getProject } from '../services/projectsAPI.js';
 import ImageModal from '../components/ImageModal.jsx';
+import BrandLogo from '../components/BrandLogo.jsx';
 import '../styles/project.css';
 
 export default function ProjectDetail() {
@@ -28,13 +29,8 @@ export default function ProjectDetail() {
 
   if (loading) {
     return (
-      <div style={{
-        minHeight: '100vh', display: 'flex', alignItems: 'center',
-        justifyContent: 'center', fontFamily: 'var(--font-serif)',
-        fontSize: '24px', fontWeight: 300, letterSpacing: '0.3em',
-        color: 'var(--primary)',
-      }}>
-        II DESIGN
+      <div className="brand-splash">
+        <BrandLogo variant="stacked" />
       </div>
     );
   }

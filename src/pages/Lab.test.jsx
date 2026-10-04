@@ -9,7 +9,7 @@ vi.mock('../services/projectsAPI.js', () => ({ getProjects: vi.fn() }));
 
 function renderLab() {
   return render(
-    <MemoryRouter initialEntries={['/lab']}>
+    <MemoryRouter initialEntries={['/']}>
       <Lab />
     </MemoryRouter>
   );

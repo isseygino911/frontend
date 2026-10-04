@@ -1,4 +1,5 @@
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
+import BrandLogo from '../components/BrandLogo.jsx';
 import '../styles/philosophy.css';
 
 /**
@@ -158,7 +159,7 @@ export default function Philosophy() {
       {/* ── Footer ─────────────────────────────────────────── */}
       <footer className="phil-footer">
         <div className="phil-footer-left">
-          <div className="phil-footer-logo">II&#8209;DESIGN</div>
+          <BrandLogo className="phil-footer-logo" />
           <p className="phil-footer-meta">
             Architectural Atelier<br />
             Global Practice<br />

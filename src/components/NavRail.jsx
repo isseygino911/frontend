@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import BrandLogo from './BrandLogo.jsx';
 import '../styles/nav.css';
 
 const NAV_ITEMS = [
@@ -28,7 +29,7 @@ export default function NavRail() {
   return (
     <nav id="nav-rail" role="navigation" aria-label="Main navigation">
       <Link id="nav-logo" to="/" aria-label="II Design — Home">
-        II&nbsp;DESIGN
+        <BrandLogo variant="mark" />
       </Link>
 
       <ul id="nav-items" role="list">

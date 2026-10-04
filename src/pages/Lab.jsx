@@ -15,7 +15,7 @@ import LabFooter from '../components/lab/LabFooter.jsx';
 import '../styles/lab.css';
 
 /**
- * /lab — landing page rebuilt on the structure and scroll choreography of the
+ * / — landing page rebuilt on the structure and scroll choreography of the
  * stanzza.design awards page, filled with II Design's own projects and copy.
  * Plan: docs/plans/stanzza-landing.md
  */

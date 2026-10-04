@@ -16,6 +16,10 @@
   --outline:     #767575;
   --outline-var: #484848;
 
+  /* Brand gold, sampled from the logo and lifted for dark backgrounds */
+  --brand-gold:       #a17c42;
+  --brand-gold-light: #d2b07a;
+
   --font-serif: 'Newsreader', Georgia, serif;
   --font-sans:  'Manrope', system-ui, sans-serif;
 
@@ -245,22 +249,75 @@ ul, ol { list-style: none; }
 }
 
 .loader-logo {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.3em;
+  font-size: 18px;
   color: var(--primary);
   overflow: hidden;
 }
 
 .loader-logo-inner {
-  display: block;
   animation: loaderReveal 1s var(--ease-monolith) forwards;
   clip-path: inset(0 100% 0 0);
 }
 
 @keyframes loaderReveal {
   to { clip-path: inset(0 0% 0 0); }
+}
+
+/* =========================================================
+   BRAND LOGO — sized by font-size, wordmark uses currentColor
+========================================================= */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  line-height: 1;
+}
+
+.brand-logo-mark {
+  display: block;
+  height: 1.7em;
+  width: auto;
+  flex: none;
+}
+
+.brand-logo-word {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  margin-right: -0.34em; /* cancel trailing tracking so the word centres */
+  white-space: nowrap;
+}
+
+.brand-logo-stacked {
+  flex-direction: column;
+  gap: 0;
+  text-align: center;
+}
+
+.brand-logo-stacked .brand-logo-mark { height: 3.6em; margin-bottom: 1.1em; }
+.brand-logo-stacked .brand-logo-word { font-size: 1.5em; }
+
+.brand-logo-tag {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+  margin-top: 1.4em;
+  font-family: var(--font-sans);
+  font-size: 0.5em;
+  letter-spacing: 0.42em;
+  margin-right: -0.42em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* Full-screen logo shown while a route loads */
+.brand-splash {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--primary);
 }
 
 /* =========================================================

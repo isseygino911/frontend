@@ -57,15 +57,10 @@
 }
 
 .auth-wordmark {
-  font-family: var(--font-serif);
   font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.24em;
   color: var(--primary);
-  text-transform: uppercase;
   margin-bottom: 40px;
   display: block;
-  text-decoration: none;
 }
 
 .auth-heading {

@@ -1,5 +1,5 @@
 /* =========================================================
-   /lab landing — structure and motion after stanzza.design/awards,
+   Landing page (/) — structure and motion after stanzza.design/awards,
    adapted to the II Design dark palette. Tokens: docs/plans/stanzza-landing.tokens.md
 ========================================================= */
 
@@ -27,6 +27,7 @@ html:has(#page-lab) body { overflow-x: clip; }
   --lab-serif:  'Instrument Serif', Georgia, serif;
   --lab-sans:   'Barlow Condensed', 'Arial Narrow', sans-serif;
   --lab-script: 'Mrs Saint Delafield', cursive;
+  --lab-gold:   var(--brand-gold-light);
 
   --lab-gutter: 24px;
   --lab-header: 92px;
@@ -175,14 +176,9 @@ html:has(#page-lab) body { overflow-x: clip; }
 .lab-wordmark {
   position: absolute;
   left: 50%;
-  top: 20px;
+  top: 28px;
   transform: translateX(-50%);
-  font-family: var(--lab-serif);
-  font-size: 36px;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  font-size: 19px;
 }
 .lab-header-cta { width: 180px; height: 44px; }
 
@@ -256,7 +252,7 @@ html:has(#page-lab) body { overflow-x: clip; }
   gap: 18px;
   text-align: center;
 }
-.lab-hero-eyebrow { font-family: var(--lab-script); font-size: clamp(32px, 3vw, 56px); line-height: 1; }
+.lab-hero-eyebrow { color: var(--lab-gold); font-family: var(--lab-script); font-size: clamp(32px, 3vw, 56px); line-height: 1; }
 #page-lab .lab-hero .lab-h1 { max-width: 10.5em; }
 .lab-hero-sub { font-size: var(--lab-fs-big); max-width: 30em; }
 .lab-hero-steps { position: absolute; inset: auto 0 0; z-index: 2; display: flex; align-items: flex-end; pointer-events: none; }
@@ -769,7 +765,7 @@ html:has(#page-lab) body { overflow-x: clip; }
 .lab-footer-links a:focus-visible { color: var(--lab-muted); }
 .lab-footer-links-right { justify-items: end; text-align: right; }
 .lab-footer-brand { display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 24px; }
-.lab-footer-brand .lab-wordmark { position: static; transform: none; font-size: 40px; }
+.lab-footer-brand .lab-wordmark { position: static; transform: none; font-size: 24px; margin-bottom: 12px; }
 .lab-footer-bottom {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -810,7 +806,7 @@ html:has(#page-lab) body { overflow-x: clip; }
   #page-lab { --lab-gutter: 16px; --lab-header: 72px; }
 
   .lab-header-cta { display: none; }
-  .lab-wordmark { top: 22px; font-size: 26px; }
+  .lab-header .lab-wordmark { left: auto; right: var(--lab-gutter); top: 25px; transform: none; font-size: 13px; }
 
   /* Composition */
   .lab-comp {

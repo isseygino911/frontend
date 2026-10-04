@@ -4,7 +4,6 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import NavRail from './components/NavRail.jsx';
 import MobileNav from './components/MobileNav.jsx';
 import ScrollProgress from './components/ScrollProgress.jsx';
-import Home from './pages/Home.jsx';
 import Archive from './pages/Archive.jsx';
 import ProjectDetail from './pages/ProjectDetail.jsx';
 import Philosophy from './pages/Philosophy.jsx';
@@ -15,6 +14,7 @@ import Dashboard from './pages/Dashboard.jsx';
 import Tools from './pages/Tools.jsx';
 import Lab from './pages/Lab.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import BrandLogo from './components/BrandLogo.jsx';
 
 /**
  * Renders a page-loader overlay that fades out once fonts/DOM are ready.
@@ -30,7 +30,7 @@ function PageLoader() {
   return (
     <div className={`page-loader${loaded ? ' loaded' : ''}`} aria-hidden="true">
       <div className="loader-logo">
-        <span className="loader-logo-inner">II DESIGN</span>
+        <BrandLogo variant="stacked" className="loader-logo-inner" />
       </div>
     </div>
   );
@@ -48,7 +48,7 @@ function ScrollToTop() {
 }
 
 /** Routes that render their own header and full-bleed layout, without the site nav. */
-const BARE_ROUTES = ['/lab'];
+const BARE_ROUTES = ['/'];
 
 /**
  * Global nav, progress bar and the routed content.
@@ -70,8 +70,7 @@ function AppShell() {
       <ScrollToTop />
       <div id="app" className={bare ? 'app-bare' : undefined}>
         <Routes>
-          <Route path="/"              element={<Home />} />
-          <Route path="/lab"           element={<Lab />} />
+          <Route path="/"              element={<Lab />} />
           <Route path="/archive"       element={<Archive />} />
           <Route path="/project/:key"  element={<ProjectDetail />} />
           <Route path="/philosophy"    element={<Philosophy />} />
