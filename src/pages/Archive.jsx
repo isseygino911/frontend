@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAnimateOnScroll } from '../hooks/useAnimateOnScroll.js';
 import { getProjects } from '../services/projectsAPI.js';
 import { LAB_STUDIO } from '../data/labContent.js';
+import VrTourBand from '../components/VrTourBand.jsx';
 import '../styles/archive.css';
 
 /**
@@ -73,6 +74,8 @@ export default function Archive() {
             Completed interiors for hotels and workplaces, organised by sector.
           </p>
         </header>
+
+        <VrTourBand />
 
         {loading ? (
           <div className="archive-loading">Loading works…</div>
